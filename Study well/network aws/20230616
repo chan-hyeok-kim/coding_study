@@ -1,0 +1,8 @@
+docker exec mytomcat rm -rf /usr/share/
+tomcat/webapps/WebProject*
+
+웹프로젝트로시작하는건 전부 지움
+
+
+Private Subnet에 위치한 EC2에 접근하기 위해 생성한 EC2
+Bastion Host(베스천 호스트)
