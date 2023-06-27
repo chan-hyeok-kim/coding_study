@@ -11,8 +11,8 @@ Kit
 Java
 
 
-HW : CPU, RAM, G/C, MB, POWER, 등등: 기계어 : 1,0(low level 언어)
-사람에게 가까우면 high level 언어
+* HW : CPU, RAM, G/C, MB, POWER, 등등: 기계어 : 1,0(low level 언어)
+* 사람에게 가까우면 high level 언어
 
 
 ### 테스트
@@ -52,7 +52,7 @@ SSD(보조기억장치) : 비휘발성
 8Bit     -> 1Byte
 Bit -> 0, 1
 
-### 타입 
+###  
 
 * Primitive
         1. 숫자형
