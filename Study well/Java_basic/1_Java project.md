@@ -72,8 +72,9 @@ Bit -> 0, 1
                         1) boolean : 1byte
                         * 1bit여도 되지만, 프로그램 최소단위 1byte라서 1byte다
 
-* Reference(참조타입)
+* Reference(참조타입) - 32bit jvm이면 4byte, 64bit jvm이면 8byte다
         1. String(문자열)
+           - String을 비롯한 참조타입들은 '=='으로 비교하면 맞지 않는 경우 있음(반드시 .equals()사용)
 
 ### java의 명명규칙
 ```
