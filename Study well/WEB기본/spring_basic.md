@@ -317,7 +317,7 @@ IOC (Inversion Of Control, 제어의 역전)
 ```
 
 
-###
+### 요청이 응답으로 오기까지 과정
 
 ```
 
@@ -330,6 +330,13 @@ DS-controller-service-DAO-DB
 c에서 DS로 리턴하는 것은?
 ModelAndView라는 객체를 리턴
 DS에서 ModelAndView객체 생성
+void, String은 view에 담김
+
+DB-DAO-service-controller-DS-IRV : view를 들고가서 prefix,suffix붙임
+                          DS-JSP : 모델을 들고가서 html리턴
+redirect : URL리턴
+Forward : jsp를 html로 만든 후 빠져나감
+
 
 ex)
 bankbook/list라는 String이 ModelAndView에 담겨서 DS로 감
@@ -355,7 +362,8 @@ xml은 소스코드수정이 불가능한 경우에도 객체를 만들 수 있�
 ```
 
 400번대 클라이언트오류
-404 ClassNotFound 이름 못찾음
+404 NotFound 이름 못찾음
+URL
 405 오류 
 ```
 
@@ -363,3 +371,24 @@ xml은 소스코드수정이 불가능한 경우에도 객체를 만들 수 있�
 ### 윈도우 포트 죽이기
 netstat -a -o
 taskkill/f/pid 0000
+
+
+### spring 한글 필터
+
+```
+
+<filter>
+        <filter-name>encode</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+<filter-mapping>
+        <filter-name>encode</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>	
+
+```

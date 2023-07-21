@@ -14,6 +14,22 @@
 WEB-INF하위 spring폴더에서 spring bean configuration파일 생성 
 ->이름 database-context.xml파일
 
+ 만든 설정 파일 등록(web-xml에서)
+
+
+DTO세터이름 컬럼명이 일치하는 애를 찾아서 DTO작성
+
+
+### 요청의 필수
+
+1. URL
+2. method(요청 메서드 형식)
+3. 쿠키
+
+-------------
+파라미터: 옵션
+get: url뒤에 붙어서나감
+구분하기위해?추가
 
 
 ```
@@ -269,13 +285,13 @@ DB연결- XML로 하고, 어노테이션으로
 			<result column="select결과물의 컬럼명" property="retun할 DTO의 멤버변수명(setter 이름)"></result>   <!-- PK를 제외한 나머지 -->
 			
 			<!-- 1:1 관계 association-->
-			<association property="retun할 DTO의 멤버변수명(setter 이름)" javaType="멤버변수의 Data type">
+			<association property="return할 DTO의 멤버변수명(setter 이름)" javaType="멤버변수의 Data type">
 				<id column="select결과물의 컬럼명" property="retun할 DTO의 멤버변수명(setter 이름)"></id>   <!-- PK로 사용하는 column -->
 				<result column="select결과물의 컬럼명" property="retun할 DTO의 멤버변수명(setter 이름)"></result>   <!-- PK를 제외한 나머지 -->
 	 		</association>
 
 			<!-- 1:N 관계 collection -->
-			<collection property="retun할 DTO의 멤버변수명(setter 이름)" javaType="멤버변수의 Data type" ofType="Generic Data type">
+			<collection property="return할 DTO의 멤버변수명(setter 이름)" javaType="멤버변수의 Data type" ofType="Generic Data type">
 				<id column="select결과물의 컬럼명" property="retun할 DTO의 멤버변수명(setter 이름)"></id>   <!-- PK로 사용하는 column -->
 				<result column="select결과물의 컬럼명" property="retun할 DTO의 멤버변수명(setter 이름)"></result>   <!-- PK를 제외한 나머지 -->
 	 		</association>
@@ -284,3 +300,10 @@ DB연결- XML로 하고, 어노테이션으로
 
 
 ```
+
+
+
+### url 
+
+rest pool방식?
+
