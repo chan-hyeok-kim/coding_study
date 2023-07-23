@@ -72,8 +72,11 @@ Bit -> 0, 1
                         1) boolean : 1byte
                         * 1bit여도 되지만, 프로그램 최소단위 1byte라서 1byte다
 
-* Reference(참조타입)
+* Reference(참조타입) - 선언된 변수는 4byte(stack영역에서)
+* 실제 내용이 들어가는 heap영역에서는 데이터타입에 따라 바뀜
+  (참조하는 주소값 있음)
         1. String(문자열)
+           - String을 비롯한 참조타입들은 '=='으로 비교하면 맞지 않는 경우 있음(반드시 .equals()사용)
 
 ### java의 명명규칙
 ```
