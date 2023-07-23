@@ -43,7 +43,7 @@ List   | "noticeboard/list" | | get |   | list.jsp
 Detail | "noticeboard/detail" | | get | boardnum | detail.jsp
 Insert | "noticeboard/add" | "noticeboard/list" | get,post | boardnum, boardwriter, boardname, boarddate, boardhit, boardcontents | add.jsp
 Update | "noticeboard/update" | "noticeboard/detail" | get,post | boardnum, boardwriter, boardname, boarddate, boardhit, boardcontents| update.jsp
-Delete | "noticeboard/delete" |"noticeboard/list" | post | boardnum| list.jsp
+Delete | "noticeboard/delete" |"noticeboard/list" | get | boardnum| list.jsp
 
 * Update - redirect시 detail로 가려면 boardnum필요  
 
