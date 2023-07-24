@@ -1,38 +1,6 @@
 
-### 데이터베이스 프레임워크
+### 기본 연결 설정
 
-프레임워크 - 라이브러리+디자인 패턴
-1. mybatis
-2. hibernate
-   
-데이터베이스 서버에 연결하려면
-프레임워크가 필요하다.
-그게 mybatis나 hibernate.
-- SQL문을 Java에서 분리하여 XML에 등록하고 연결해서 사용하기 위함
-
-라이브러리 설치 후 
-WEB-INF하위 spring폴더에서 spring bean configuration파일 생성 
-->이름 database-context.xml파일
-
- 만든 설정 파일 등록(web-xml에서)
-
-
-DTO세터이름 컬럼명이 일치하는 애를 찾아서 DTO작성
-
-
-### 요청의 필수
-
-1. URL
-2. method(요청 메서드 형식)
-3. 쿠키
-
--------------
-파라미터: 옵션
-get: url뒤에 붙어서나감
-구분하기위해?추가
-
-
-```
 
 
 - Database Framework 중 하나
@@ -123,14 +91,53 @@ get: url뒤에 붙어서나감
 				Text 확장 -> java Properties 파일 클릭
 				Default Encoding을 UTF-8수정하고 꼭!!!! Update 클릭, 적용후 종료
 
-	6) mybatis 환경 설정 파일 등록(xml)
+-----------------------------------------------------------------------------------
+- database.properties 순서
+0. git ignore에 
+```
+#dbInfo.properties
+database.properties 
+```
+1. 먼저 작성
+2. - 한글 Encoding
+				window -> preferences -> general -> contentType 클릭
+				Text 확장 -> java Properties 파일 클릭
+				Default Encoding을 UTF-8수정하고 꼭!!!! Update 클릭, 적용후 종료
+3. database.properties 일반 파일 생성
+
+4. 세부 내용
+
+```
+
+oracle.user=user01
+oracle.password=user01
+oracle.url=jdbc:oracle:thin:@15.165.158.213:1521:xe
+oracle.driver=oracle.jdbc.driver.OracleDriver
+
+```
+* 주의 : 절대 공백을 띄우지 말것.
+* 공백도 인식함
+
+5. 하단 namespaces 슬롯에서 context추가
+-- DB 연결정보가 있는 properties파일의 위치 알려줌
+	<context:property-placeholder location="classpath:database/config/database.properties"/>
+
+6. 키를 이용해서 database-context.xml수정
+-- EL방식 사용
+-- ex)  value="${oracle.user}"
+
+
+
+---------------------------------------------------------------------------------
+
+	1) mybatis 환경 설정 파일 등록(xml)
 		- src/main/resources/database/config/mybatisConfig.xml : 파일명은 개발자 마음
 
 			<!DOCTYPE configuration
 				  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
 
-	7) 3), 6) 에서 만든 database-context.xml에 다음 등록
+	2) 3), 6) 에서 만든 database-context.xml에 다음 등록
 
 	-- DB 연결정보가 있는 properties파일의 위치 알려줌
 	<context:property-placeholder location="classpath:database/config/database.properties"/>
@@ -155,7 +162,8 @@ get: url뒤에 붙어서나감
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"></constructor-arg>
 	</bean>
 
-```
+
+* Config.xml 써서 alias(별칭) 지정할거면 database-context.xml에도 찾을 수 있게 location을 속성으로 추가해줘야 함
 
 
 ### mapper
@@ -303,7 +311,54 @@ DB연결- XML로 하고, 어노테이션으로
 
 
 
-### url 
+
+
+
+
+
+### 데이터베이스 프레임워크
+
+프레임워크 - 라이브러리+디자인 패턴
+1. mybatis
+2. hibernate
+   
+데이터베이스 서버에 연결하려면
+프레임워크가 필요하다.
+그게 mybatis나 hibernate.
+- SQL문을 Java에서 분리하여 XML에 등록하고 연결해서 사용하기 위함
+
+라이브러리 설치 후 
+WEB-INF하위 spring폴더에서 spring bean configuration파일 생성 
+->이름 database-context.xml파일
+
+ 만든 설정 파일 등록(web-xml에서)
+
+
+DTO세터이름 컬럼명이 일치하는 애를 찾아서 DTO작성
+
+
 
 rest pool방식?
+
+
+### 요청의 필수
+
+1. URL
+2. method(요청 메서드 형식)
+3. 쿠키
+
+-------------
+파라미터: 옵션
+get: url뒤에 붙어서나감
+구분하기위해?추가
+
+
+### POST
+
+* FORM 태그 하위의 disabled로 하면 파라미터로 못넘어감
+* ID값 숨기고 파라미터 넘기는 법
+
+1. hidden으로 가능
+2. session 사용
+-- 단 session값을 먼저 파라미터로 넘어온 DTO에 넣어야 함
 
