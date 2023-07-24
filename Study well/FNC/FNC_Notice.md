@@ -9,8 +9,8 @@
 > 목적 : DB 설계 및 Spring 작업 메커니즘에 익숙해지기 위함
 
 스키마 설계에 앞서
-> 테이블명 : NOTICEBOARD
-> home은 "noticeboard/list"로 한다
+> 테이블명 : BOARD
+> home은 "board/list"로 한다
 > 보조 : ER다이어그램
 
 ERD 주소 : https://www.erdcloud.com/d/GzFoRLovxHPkRAaWA
