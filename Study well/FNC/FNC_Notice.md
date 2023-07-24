@@ -23,7 +23,7 @@ ERD 주소 : https://www.erdcloud.com/d/GzFoRLovxHPkRAaWA
 ### 2. DB 설정
 
 
-TABLE | NOTICEBOARD ||||||
+TABLE | BOARD ||||||
 --|--|--|--|--|--|--
 대치항목 | 번호 | 작성자 | 제목 | 날짜 | 조회수 | 내용
 COLUMN | BOARDNUM | BOARDWRITER | BOARDNAME | BOARDDATE | BOARDHIT  | BOARDCONTENTS
@@ -39,11 +39,11 @@ SEQUENCE | NOTICEBOARD_SEQ  ||||
 
  목록  |  URL  | redirectURL| 메서드 형식  | 파라미터로 필요한 값 | JSP 
 --|--|--|--|--|--
-List   | "noticeboard/list" | | get |   | list.jsp  
-Detail | "noticeboard/detail" | | get | boardnum | detail.jsp
-Insert | "noticeboard/add" | "noticeboard/list" | get,post | boardnum, boardwriter, boardname, boarddate, boardhit, boardcontents | add.jsp
-Update | "noticeboard/update" | "noticeboard/detail" | get,post | boardnum, boardwriter, boardname, boarddate, boardhit, boardcontents| update.jsp
-Delete | "noticeboard/delete" |"noticeboard/list" | get | boardnum| list.jsp
+List   | "board/list" | | get |   | list.jsp  
+Detail | "board/detail" | | get | boardnum | detail.jsp
+Insert | "board/add" | "board/list" | get,post | boardnum, boardwriter, boardname, boarddate, boardhit, boardcontents | add.jsp
+Update | "board/update" | "board/detail" | get,post | boardnum, boardwriter, boardname, boarddate, boardhit, boardcontents| update.jsp
+Delete | "board/delete" |"board/list" | get | boardnum | list.jsp
 
 * Update - redirect시 detail로 가려면 boardnum필요  
 
