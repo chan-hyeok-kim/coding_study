@@ -27,7 +27,7 @@ ex) 클라이언트에서 이미지 파일을 서버로 보내려고 한다
 	2) form 태그의 method형식은 post, enctype="multipart/form-data"로 변경
 			- 첨부파일이 없는 폼은 enctype은 기본으로 설정
             - 첨부파일은 반드시 multipart넣어준단
-	3) Server에서 여러개의 파일조각들을 하나로 합쳐주는 역할을 하는 객체를 생성
+	3) Server에서 여러개의 파일조각들을 하나로 합쳐주는 역할을 하는 객체(multipartResolver객체)를 생성
 
 		- ***-context.xml
 		<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
@@ -37,6 +37,8 @@ ex) 클라이언트에서 이미지 파일을 서버로 보내려고 한다
 			<!-- upload하는 파일당 크기 제한 단위 byte -->
 			<property name="maxUploadSizePerFile" value="5242880"></property>
 		</bean>
+		
+		
 
 	4) form 태그에 파일 태그 추가
 			<input type="file" name="photo" id="photo">
@@ -47,11 +49,52 @@ ex) 클라이언트에서 이미지 파일을 서버로 보내려고 한다
 		- 같은 변수명(파라미터로) 여러개의 파일을 업로드 할 때는 Multipart [] 선언
 
 
+    6)MultipartFile로 받아주고
+     1. HDD 파일에 저장
+        a. 어디에 저장할 것인가(/resources/**)
+	    b. 어떤 이름으로 저장할 것인가(파일명 중복 X)
+            - 시간 이용(Calendar)
+			- API 이용 => UUID.randomUUID().toString()
+ 
+     2. 파일을 저장하는 법 2개
+		A. Spring에서 제공하는 API. FileCopyUtils메서드
+		FileCopyUtils.copy(multipartFile.getBytes(), file);
+	
+		B. MultipartFile의 transferTo메서드
+		multipartFile.transferTo(file);
+ 
+
+
+
+```
+
+여기서 문제가 또 발생
+ * 파일 저장하려면 DB가 필요
+ * 누가 보냈는지 식별해야 하기 때문
+  
+```
+
+- 따라서 테이블을 만든 후 임의의 키(인공키)를 만들어줘야 한다
+
+외래키의 조건 unique나 primary key
+- 데이터 지울 땐 자식을 지우고 부모를 지워야함
+ 
+RDBMS
+(relational database management system)
+
+jdbc - java언어를 db사이에서 통역해줌
+
+
+NOSQL(대용량) : MongoDB,Cassandra,HBase
+
+
+
 ```
 
 
+
 * 자바의 byte타입(이진데이터) 
-  -- 파일을 이용할 때 사용
+  - 파일을 이용할 때 사용
 
 
 ### API 파일 클래스
@@ -105,3 +148,38 @@ File file = new File(폴더의정보를 알고있는 File객체, "자식 폴더 
   file = new File("C:\\study", "study.txt");
 
 ```  
+
+
+### 로그인 후 My Page에서 출력하기
+
+
+
+1. mapper에서 resultmap선언
+2.  resultMap의 id와 result 선언 후 
+
+
+```
+  <id column="" property="">
+```
+
+3. 1:1이면 association 선언
+
+```
+<association property="" javatype="">
+<id>
+<result>
+</association>
+```
+
+4. 1:N이면 collection 선언
+```
+<collection property="" javatype="" oftype="">
+<id>
+<result>
+</collection>
+```
+
+
+
+
+

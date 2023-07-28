@@ -46,3 +46,13 @@ jsp
 ajax
 
 redirect는 서버가 클라이언트로주는 주소
+
+
+### NullpointerException
+
+```
+
+  -- 참조변수의 객체가 NULL인 경우, 메서드 호출 시 예외 발생
+  -- 참조변수의 주소가 null인지 확인해야됨
+ 
+```

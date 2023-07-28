@@ -309,13 +309,6 @@ DB연결- XML로 하고, 어노테이션으로
 
 ```
 
-
-
-
-
-
-
-
 ### 데이터베이스 프레임워크
 
 프레임워크 - 라이브러리+디자인 패턴
@@ -362,3 +355,26 @@ get: url뒤에 붙어서나감
 2. session 사용
 -- 단 session값을 먼저 파라미터로 넘어온 DTO에 넣어야 함
 
+
+### Configuration설정
+위치 :
+resources/database/config/database.properties
+
+```
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+
+	<configuration>
+  	<typeAliases>
+			-- 없는 클래스는 선언 하면 에러
+  		<typeAlias type="풀패키지명.클래스명" alias="별칭(클래스명)"/>
+  		<typeAlias type="com.iu.s1.bankbook.BankBookDTO" alias="BankBookDTO"/>
+  		
+  		<typeAlias type="java.lang.Long" alias="Long"/>
+  	</typeAliases>
+  
+  </configuration>
+
+``` 
