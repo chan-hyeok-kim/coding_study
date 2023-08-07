@@ -56,3 +56,30 @@ redirect는 서버가 클라이언트로주는 주소
   -- 참조변수의 주소가 null인지 확인해야됨
  
 ```
+
+### getTotal Exception
+list parameter가 문제였음 (DTO로 해놨었음)
+
+### PropertyNotFoundException
+items = "${list}"안하면 오류
+
+### java.sql.SQLException: 부적합한 열 유형: 1111
+
+SEVERE: 경로 []의 컨텍스트 내의 서블릿 [appServlet]을(를) 위한 Servlet.service() 호출이, 근본 원인(root cause)과 함께, 예외 [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='boardHit', mode=IN, javaType=class java.lang.Long, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting null for parameter #1 with JdbcType OTHER . Try setting a different JdbcType for this parameter or a different jdbcTypeForNull configuration property. Cause: java.sql.SQLException: 부적합한 열 유형: 1111]을(를) 발생시켰습니다.
+
+
+먼저넣은 boardHit값이 null이라서 계산못한거임
+
+null값이 들어갈만한.
+매개변수가 있는 해당 컬럼쪽의 모든 메서드를 찾아봐야함.
+
+
+###
+
+405 : 
+1. 요청메서드가 일치하지 않는 경우
+
+400 :
+1. 파라미터의 타입과 bean의 멤버의 타입이 일치 X
+
+

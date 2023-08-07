@@ -3,8 +3,18 @@ const btn =  document.getElementById("btn");
 const h1 = document.getElementsByTagName("h1");
 
 btn.addEventListener("click", function(){
-    d1.innerHTML='<input type="button" value="BUTTON" id="b1">';
-    
+    // d1.innerHTML='<input type="button" value="BUTTON" id="b1">';
+    let b = document.createElement("input");
+    let t = document.createAttribute("type");
+    t.value = "button";
+    b.setAttributeNode(t);
+    t = document.createAttribute("value");
+    t.value= "BUTTON";
+    b.setAttributeNode(t);
+    t = document.createAttribute("id");
+    t.value= "b1";
+    b.setAttributeNode(t);
+    d1.appendChild(b);
 })
 
 d1.addEventListener("click", function(event){
@@ -40,3 +50,31 @@ d1.addEventListener("click", function(event){
 
 
 // event를 눌러서 나온 내용에 event를 걸고 싶을 때 사용
+
+const ul1 = document.getElementById("ul1");
+const btn1 = document.getElementById("btn1");
+
+btn1.addEventListener("click", function(){
+    
+    let b11 = document.createElement("btn1");
+    let b12 = document.createAttribute("type");
+    
+    b12.value="button";
+    b11.setAttributeNode(b12);
+    
+    b12 = document.createAttribute("value");
+    b12.value="CLICK";
+    b11.setAttributeNode(b12);
+
+    b12 = document.createAttribute("id");
+    b12.value="id";
+    b11.setAttributeNode(b12);
+    ul1.appendChild(b11);
+})
+
+
+const del = document.getElementById("del");
+
+del.addEventListener("click", function(){
+    d1.remove();
+})
