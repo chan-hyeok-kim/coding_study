@@ -180,6 +180,31 @@ File file = new File(폴더의정보를 알고있는 File객체, "자식 폴더 
 ```
 
 
+### File Update
 
+```
+DB쿼리는 뭘 써야 할까?
+
+필요한 데이터
+  : fileName, originalName,fileNum
+
+*** 그러나 fileName, originalName은 받아올 수 있다.
+jsp에서 쏴야하는 건 fileNum
+
+--- 1단계: 파일 삭제해보기 ---
+
+1. 우선 삭제 쿼리를 사용해야 함
+2. 기존 파일 삭제할 수 있게 Ajax사용해서 만들기
+3. 삭제
+
+--- 2단계:
+
+
+
+--- 3단계:
+
+
+
+```
 
 
