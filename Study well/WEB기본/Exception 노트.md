@@ -131,3 +131,11 @@ JSP를 계속 본 결과
 controller의 ajaxresult철자 문제였음
 Result여야 함.
 경로 자체가 잘못되었으니 멤버변수가 안오지
+
+### json 예외
+
+from origin : 127/..
+해당 서버가 아닌 
+다른 서버에서 요청했을 떄 생기는문제
+
+

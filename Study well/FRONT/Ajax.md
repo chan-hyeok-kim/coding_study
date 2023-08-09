@@ -11,6 +11,9 @@
 * 4wayhandshaking
 
 
+
+
+
 ```
 
 1. XMLHttpRequest
@@ -35,7 +38,7 @@ let xhttp = new XMLHttpRequest();
                     }
                 }
 
-2. fetch
+1. fetch
 	 fetch(url, [options])
 	 - url : 요청 URL
 	 - options : method나, header등 지정
