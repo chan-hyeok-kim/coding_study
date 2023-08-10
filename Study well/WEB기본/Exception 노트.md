@@ -132,6 +132,12 @@ controller의 ajaxresult철자 문제였음
 Result여야 함.
 경로 자체가 잘못되었으니 멤버변수가 안오지
 
+
+1. 에러
+is not a function 
+ - 모르겠다는 뜻
+
+
 ### json 예외
 
 from origin : 127/..

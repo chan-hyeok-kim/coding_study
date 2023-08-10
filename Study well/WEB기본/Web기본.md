@@ -1,5 +1,14 @@
 ### 웹 기본
 
+* CDN (contents delivery network)
+:다른 서버에 요청
+(자원 분산)
+
+(<=>) link, script src 
+:우리 서버에 요청
+
+
+
 ```
 
 

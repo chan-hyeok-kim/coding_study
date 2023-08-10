@@ -29,13 +29,16 @@ for(let i=0; i<p2.length; i++){
            if(!p.checked){
            result = p.checked;
            break;
+        // break ->하나라도 false면 반복문 빨리 종료하기 위함  
         }
      }
      ch1.checked = result;
      })
     }
 
-
+    // 반복문을 2번 돈다는 컨셉이 중요함
+//     버튼 하나 클릭할 때마다 4개 버튼의 true, false를 점검하기 때문
+//     for한번 돌린게 contains나 includes의 개념인거임
   
 
 
