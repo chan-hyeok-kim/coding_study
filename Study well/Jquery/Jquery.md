@@ -165,7 +165,13 @@ Element
 
 3. Sibling(형제)
 	https://www.w3schools.com/jquery/jquery_traversing_siblings.asp
-
+    1)siblings()
+    2)next()
+    3)nextAll()
+    4)nextUntil()
+    5)prev()
+    6)prevAll()
+    7)prevUntil()
 
 ```
 
@@ -203,6 +209,89 @@ $.ajax({
 	success : callback function,
 	error   : callback function
 })
+
+```
+
+
+### formData 객체로 이미지 전송하기
+
+* 아래는 섬머노트API로 진행했음
+
+```
+
+$('#contents').summernote({
+		height:400,
+		callbacks:{
+			onImageUpload:function(files){
+				alert('이미지 업로드');
+			//	$('#summernote').summernote('insertNode', imageNode);
+				// 이미지를 서버로 전송하고
+				// 응답으로 이미지 경로와 파일명을 받아서
+				// img태그를 만들어서 src속성에 이미지 경로를 넣는 것
+
+
+				let formData = new FormData(); 
+				// <form></form>이 만들어진거임
+				// 자바스크립트로 객체만들기
+
+				formData.append("files",files[0]); 
+				// <input type="file" name="files">추가하는 거
+ 
+				$.ajax({
+					type: 'post',
+					 url: 'setContentsImg',
+					 data: formData, //객체 자체만 넣으면되서 중괄호 없어도됨
+					 enctype: 'multipart/form-data',
+					 cache: false,
+					 contentType: false,
+					 processData: false,
+					 success:function(result){
+						$('#contents').summernote('insertImage', result.trim());
+
+					 },
+					 error:function(){
+						console.log('error');
+
+					 }
+				});
+				// 이걸로 끝이 아님
+				// 업로드한 이미지는 여러 상황(내용 수정, 글 작성하다 이동 등등)
+			    // 에 따라 어떻게 지울 것인가? 결정해야 됨
+                 
+
+			}
+		}
+	});
+
+```
+
+2. 휴지통 버튼 눌렀을 때 폴더에서도 지워지게 하기.
+
+ - 1단계 src값을 통째로 보낸다
+ - 2단계 서비스에서 잘라서 처리
+ - 3단계 후처리
+
+```
+
+		onMediaDelete:function(files){
+				let path = $(files[0]).attr("src") // /resources/upload/notice/파일명
+
+				$.ajax({
+					type:'post',
+					 url:'./setContentsImgDelete', 
+					 data:{
+						path:path
+					 },
+					success:function(result){ㅐ
+						console.log(result);
+					},
+					error:function(){
+						console.log("에러 발생");
+					}
+				})
+
+			}
+
 
 ```
 
