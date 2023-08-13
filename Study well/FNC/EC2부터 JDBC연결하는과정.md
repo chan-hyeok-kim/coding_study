@@ -46,6 +46,12 @@ sudo apt-get install mysql-server
 
 ```
 
+
+dbeaver oracle 
+계정: system
+비번: oracle
+
+
 ```
 
 CREATE USER '유저명'@'%' IDENTIFIED BY '비밀번호';
@@ -56,6 +62,12 @@ grant all privileges on *.* to user01@127.0.0.1 identified by user01;
 grant all privileges on *.* to '유저명'@'%' with grant option;
 
 ```
+d$dlA35k7
+
+
+CREATE USER 'user01' IDENTIFIED BY 'user01';
+
+ALTER USER 'user01'@'%' IDENTIFIED WITH mysql_native_password BY 'd$dlA35k7';
 
 9. mybatis 프레임워크
 
