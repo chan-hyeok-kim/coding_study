@@ -9,6 +9,7 @@ public class Ex2_1 {
 		//ctrl+alt+down 행단위 복사
 		//shift +down 2번
 		//alt+ shift+ A
+                //alt+up/down 한줄 이동
 
 	}
 
