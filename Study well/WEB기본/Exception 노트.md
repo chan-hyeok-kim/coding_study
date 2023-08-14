@@ -79,6 +79,13 @@ null값이 들어갈만한.
 
 ```
 
+### javax.servlet.ServletException: 
+파일 [&#47;temp&#47;bootStrap.jsp]을(를) 찾을 수 없습니다.
+
+원인 : request.getRequestDispatcher("/WEB-INF/views/../*.jsp"); 라고 준게 원인
+
+해결 : 경로를 제대로 주던가. 어차피 안 쓸 거라서 주석처리했음
+
 
 ###
 
