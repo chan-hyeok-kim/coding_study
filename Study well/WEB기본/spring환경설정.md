@@ -1,9 +1,6 @@
 ### Spring-legacy 환경설정
 
-- Project Facets
-- dynamic web module 4.0
-- java 11
-- javascript 1.0
+
 
 1. pom.xml세팅 
   - mybatis 
@@ -78,4 +75,62 @@
 
 ```
   - pox.xml에 - commons-fileupload 추가
-  - 
+
+
+### 버전 확인
+
+1. java
+  path
+  java -version
+  javac
+
+2. sts확인
+  - sts실행 후 초기 화면에서
+  - workspace폴더 변경
+  - STS설정 변경
+      - encoding
+      - 결과를 확인하는 웹브라우저 변경
+      - Tomcat 연동 확인
+
+3. DBeaver확인
+    - 연결정보들 삭제
+    - 새로운 연결 정보 등록
+
+4. GIT
+   - cmd에서 설치 확인: git --version
+
+5. git-fork
+   - File - Accounts에서 계정 삭제 
+   - File - Preferences -> Git -> Global User Information
+   - Local Repository 삭제
+
+6. Git-hub 유저 변경 방법
+  1) windows
+  - Windows 검색 -> 자격증명 관리자
+  - windows 자격증명 -> 일반자격증명 -> git 확인 후 변경 또는 삭제
+  1) CMD
+  git config --global user.name 유저명
+  git config --global user.email 유저이메일
+
+7. GitHub에서 사용하던 Repository를 Clone
+   1) GitHub에서 Clone할 Repository 주소 복사
+   2) Git-fork -> file -> Clone
+   3) Parent Folder 확인 
+   4) Test Connection 실행
+   5) STS
+       - File -> import
+       - Projects from Git(with smart import)
+       - Existing local repository
+       - Add로 추가(Clone한 폴더의 최상위 폴더 선택)
+       - Import할 이름을 선택 후 -> next -> finish
+
+8. import 실행 안될 시 체크사항 
+
+```
+
+- Project Facets
+- dynamic web module 4.0
+- java 11
+- javascript 1.0
+
+```

@@ -79,13 +79,24 @@ null값이 들어갈만한.
 
 ```
 
+### javax.servlet.ServletException: 
+파일 [&#47;temp&#47;bootStrap.jsp]을(를) 찾을 수 없습니다.
+
+원인 : request.getRequestDispatcher("/WEB-INF/views/../*.jsp"); 라고 준게 원인
+
+해결 : 경로를 제대로 주던가. 어차피 안 쓸 거라서 주석처리했음
+
 
 ###
 
-405 : 
+404 : 
+
+405 : 메서드가 잘못
 1. 요청메서드가 일치하지 않는 경우
 
-400 :
+403 : 권한 없음
+
+400 : 파라미터 문제
 1. 파라미터의 타입과 bean의 멤버의 타입이 일치 X
 
 
@@ -105,6 +116,24 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 restart하니까 멀쩡함
 
 ```
+
+
+
+### url ENCODER NULL
+
+원인 : mapper에서 컬럼 하나(ORIGINALNAME)안 써서 생긴 문제
+해결 : 컬럼명 입력해주고 해결
+
+
+
+### 예외는 아닌데 로그인이 안됨
+
+원인 : inner join으로 묶어놔서 참조한 테이블의 값이 null이면 로그인 불가
+
+해결 : ROLE, MEMBERROLE에 내용 추가해서 로그인함
+
+
+
 
 ### 예외는 아닌데 update가 안됨
 
