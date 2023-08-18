@@ -38,10 +38,10 @@
 3. src/main/resources/database/config/
   - 이 위치에 properties(로그인 정보)와 mybatisConfig.xml(alias)이 있어야 함
   
-4. 한글 인코딩
-  - web.xml에 아래 코드를 추가
+4. web.xml 파일 설정
   - contextConfigLocation의 param-value를 /WEB-INF/spring/*-context.xml로 수정
   - 아마 *이 root로 되어있을거임
+  - web.xml에 아래 코드를 추가(한글 인코딩)
 ```
 
 <filter>
