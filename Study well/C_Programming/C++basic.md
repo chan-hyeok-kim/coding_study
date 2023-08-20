@@ -1,10 +1,3 @@
-### stdio
-
-- standard input output
-- 입출력을 하기 위해 쓰는 표준 입출력 헤더파일
-
-
-
 ### cout
 * 출력 함수
 

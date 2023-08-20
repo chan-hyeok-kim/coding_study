@@ -6,17 +6,18 @@ let cho = document.getElementById("choice")
 				let calendarEl = document.getElementById('calendar');
 				let calendar = new FullCalendar.Calendar(calendarEl, {
 					initialView : 'dayGridMonth',
-
 					selectable: true,
                     locale: 'ko',
+
+
                     dateClick: function(info) {
                         alert('예약하실 날짜는 '+info.dateStr+'입니다')
-                        let str = '<div id="time">';
-                        str = str+'<input type="time" min="00:00" step="900" name="startTime">';
-                        str = str+'<input type="time">';
-                        str = str+ '</div>';
-                        
-                        $('#calendar').after(str);
+    
+                        let str='<div id="timepicker">';
+                        str=str+'시작시간<input type="text">';
+                        str=str+'종료시간<input type="text">';
+                        str=str+'</div>';
+                        $('#calendar').append(str);
 
                       
                 

@@ -45,7 +45,7 @@ $("#btn").click(function(){
     
 });
 
-// 제이쿼리 이벤트 위임 2가지 방법
+// 제이쿼리 이벤트 등록 2가지 방법
 // 1. 선택자.이벤트명()
 // 2. 선택자.on("이벤트명", 콜백함수)
 // 2번째 방식은 한번에 이벤트를 여러개 걸 수 있음
@@ -60,19 +60,25 @@ $("#d1").on({
     "blur":function(){}
 })
 
+
+// 이벤트 위임
 $("#d1").on("click",".d", function(){
     console.log("click");
     console.log($(this));
     $(this).parent().remove();
 })
 
-
-
 $("#del").click(function(){
-  
-    // $("#d1").html("");
-    $("#d1").empty();
+r='<input type="text" class="test">'
+$("#d1").after(r);
 })
+
+$("#del").on("click",".test",function(){
+    console.log(this);
+    // $("#d1").html("");
+    
+})
+
 
 
 
