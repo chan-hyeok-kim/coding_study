@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <style>
+        #timeList {
+            height: 100px;
+        }
+
+        .timeBlock {
+            height: 30px;
+            width: 4%;
+            float: left;
+
+
+        }
+
+        .tB1 {
+            background-color: gainsboro;
+            border: solid #032b285b 1px;
+        }
+
+        .tB1:hover {
+            background: rgba(250, 246, 223, 0.89);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="timeList">
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+        <div class="timeBlock tB1">
+        </div>
+
+
+        <div class="timeBlock">0
+        </div>
+        <div class="timeBlock">1
+        </div>
+        <div class="timeBlock">2
+        </div>
+        <div class="timeBlock">3
+        </div>
+        <div class="timeBlock">4
+        </div>
+        <div class="timeBlock">5
+        </div>
+        <div class="timeBlock">6
+        </div>
+        <div class="timeBlock">7
+        </div>
+        <div class="timeBlock">8
+        </div>
+        <div class="timeBlock">9
+        </div>
+        <div class="timeBlock">10
+        </div>
+        <div class="timeBlock">11
+        </div>
+
+        <div class="timeBlock">12
+        </div>
+        <div class="timeBlock">13
+        </div>
+        <div class="timeBlock">14
+        </div>
+        <div class="timeBlock">15
+        </div>
+        <div class="timeBlock">16
+        </div>
+        <div class="timeBlock">17
+        </div>
+        <div class="timeBlock">18
+        </div>
+        <div class="timeBlock">19
+        </div>
+        <div class="timeBlock">20
+        </div>
+        <div class="timeBlock">21
+        </div>
+        <div class="timeBlock">22
+        </div>
+        <div class="timeBlock">23
+        </div>
+    </div>
+    <select name="approval-startTime" class="SelectBoxstyle__Select-sc-1i9rrh1-0 jdZFuX">
+        <option value="" class="TimeFormstyle__DefaultOption-sc-161sx5r-1 FTLFp">시작(세팅 포함)시간</option>
+        <option value="00:00">00:00</option>
+        <option value="01:00">01:00</option>
+        <option value="02:00">02:00</option>
+        <option value="03:00">03:00</option>
+        <option value="04:00">04:00</option>
+        <option value="05:00">05:00</option>
+        <option value="06:00">06:00</option>
+        <option value="07:00">07:00</option>
+        <option value="08:00">08:00</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
+        <option value="22:00">22:00</option>
+        <option value="23:00">23:00</option>
+    </select>
+    <select name="approval-endTime" class="SelectBoxstyle__Select-sc-1i9rrh1-0 jdZFuX">
+        <option value="" class="TimeFormstyle__DefaultOption-sc-161sx5r-1 FTLFp">종료(정리 포함)시간</option>
+        <option value="00:00">00:00</option>
+        <option value="01:00">01:00</option>
+        <option value="02:00">02:00</option>
+        <option value="03:00">03:00</option>
+        <option value="04:00">04:00</option>
+        <option value="05:00">05:00</option>
+        <option value="06:00">06:00</option>
+        <option value="07:00">07:00</option>
+        <option value="08:00">08:00</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
+        <option value="22:00">22:00</option>
+        <option value="23:00">23:00</option>
+    </select>
+    
+
+    <script src="timpicker.js"></script>
+</body>
+
+</html>
