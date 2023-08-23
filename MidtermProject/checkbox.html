@@ -6,31 +6,26 @@
     <title>Document</title>
     <style>
 
-input[type="checkbox"]{
-        display: none;
-      }
-input[type="checkbox"] + label{
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        border:3px solid #707070;
-        position: relative;
-      }
-input[id="check1"]:checked + label::after{
-        content:'✔';
-        font-size: 25px;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        position: absolute;
-        left: 0;
-        top:0;
-      }
-  
+
+
+input[type="checkbox"]+label {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('free-icon-check-box-9490039.png') no-repeat 0 0px / contain;
+}
+
+input[type='checkbox']:checked+label {
+    background: url('free-icon-check-box-9490168.png') no-repeat 0 1px / contain;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
     </style>
 </head>
 <body>
-    <input type="checkbox" id="check1">
-    <label for="check1"></label>
+  <input type="checkbox" id="myCheck">
+  <label for="myCheck">체크테스트</label>
 </body>
 </html>
