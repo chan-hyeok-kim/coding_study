@@ -190,8 +190,16 @@
         <option value="23:00">23:00</option>
     </select>
     
-
+    <input class="form-control" name="reason" value="" id="cancleReason">
+    <button id="btn" onclick="getInputValue();">환불</button>
     <script src="timpicker.js"></script>
+    <script>
+        
+        function getInputValue(){
+            let cancelReason = $('#cancleReason').val();
+            console.log(cancelReason)
+        }
+    </script>
 </body>
 
 </html>

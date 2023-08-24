@@ -174,3 +174,5 @@ from origin : 127/..
 다른 서버에서 요청했을 떄 생기는문제
 
 
+## 무한 다이렉트
+DELETE나 UPDATE 시 COMMIT 안해줘서 생긴 문제
