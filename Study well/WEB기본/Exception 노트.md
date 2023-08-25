@@ -174,5 +174,17 @@ from origin : 127/..
 다른 서버에서 요청했을 떄 생기는문제
 
 
-## 무한 다이렉트
+### 무한 다이렉트
 DELETE나 UPDATE 시 COMMIT 안해줘서 생긴 문제
+
+
+### ClassNotFoundException
+
+문제: > Maven > Update Project Configuration 실행시 maven 라이브러리 경로가 삭제되는 현상이 발생한다고 한다.
+
+
+
+해결:
+
+* 프로젝트 우클릭 >  properties
+* Deployment Assembly > Add 버튼 > Java Build Path Entries > Maven Dependencies 선택 > Apply버튼

@@ -173,3 +173,62 @@ paystate
 오늘 요약: 결제랑 결제 완료페이지까지 진행 완료. 
 URL커넥션을 이용해서 내일 환불을 만들어야겠다
 
+
+------------------8월 25일--------------------
+
+문제 1: 환불 토큰만 받아오기
+
+해결 : json형태로 HttpsURLConnetion을 활용하여 토큰을 받아왔다.
+
+문제 2 : 환불하기
+환불을 하려면 토큰과 imp_uid가 필요하단 것을 이제야 깨달았다.
+imp_uid를 저장할 컬럼을 DTO에 결제정보에 추가했다.
+
+imp_uid는 sid(서버 아이디)로
+merchant_uid는 cid(클라이언트 아이디)로 
+
+
+그 김에, import에서 어떤 정보들이 넘어오는가도 확보했다.
+
+ {
+        "amount": 100,
+        "apply_num": null,
+        "buyer_addr": "서울 광진구 화양동 xxxx",
+        "buyer_email": "xxx@gmail.com",
+        "buyer_name": "xxx",
+        "buyer_postcode": "143-193",
+        "buyer_tel": "010-xxxx-xxxx",
+        "cancel_amount": 0,
+        "cancel_reason": null,
+        "cancel_receipt_urls": [ ],
+        "cancelled_at": 0,
+        "card_name": null,
+        "card_quota": 0,
+        "currency": "KRW",
+        "custom_data": null,
+        "escrow": false,
+        "fail_reason": "F0004:PG사 결제요청에 실패하여 중단합니다(imp_092684221544) 결제모듈 재설치필요:",
+        "failed_at": 1478732906,
+        "imp_uid": "imp_092684221544",
+        "merchant_uid": "merchant_1478732608219",
+        "name": "주문명:test#1",
+        "paid_at": 0,
+        "pay_method": "trans",
+        "pg_provider": "html5_inicis",
+        "pg_tid": null,
+        "receipt_url": "https://iniweb.inicis.com/DefaultWebApp/mall/cr/cm/mCmReceipt_head.jsp?noTid=&noMethod=1",
+        "status": "failed",
+        "user_agent": "sorry_not_supported_anymore",
+        "vbank_date": 0,
+        "vbank_holder": null,
+        "vbank_name": null,
+        "vbank_num": null
+      },
+
+해결: 기나긴 씨름 끝에 해결
+카톡 알림으로 결제가 취소되었단 내용을 받았다.
+이제 문제는 결제취소로 받아온 정보에서 결제가 취소가 취소된 거에 대한 처리를 해야한다.
+
+
+문제 3: 환불 후처리
+rgb(32, 12, 121)

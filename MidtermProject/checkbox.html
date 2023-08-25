@@ -5,27 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
-
+/* 
+input[type="checkbox"]{
+        display: none;
+      }
+input[type="checkbox"] + label{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border:3px solid #949292;
+        position: relative;
+      }
+input[id="check1"]:checked + label::after{
+        content:'✔';
+        font-size: 25px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        top:0;
+      } */
 
 input[type="checkbox"]+label {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background: url('free-icon-check-box-9490039.png') no-repeat 0 0px / contain;
+    display: inline;
+    width: 30px;
+    padding-left: 20px;
+    background: url('checkbox-checked.png') no-repeat 0 0px / contain;
+    
 }
 
 input[type='checkbox']:checked+label {
-    background: url('free-icon-check-box-9490168.png') no-repeat 0 1px / contain;
+    background: url('free-icon-checkbox-full.png') no-repeat 0 1px / contain;
 }
 
 input[type="checkbox"] {
     display: none;
+}  
+
+/* input[type=checkbox] {
+    display:none;
 }
+input[type=checkbox] + label { 
+    width: 30px;
+    cursor: pointer; 
+    padding-left: 23px; 
+    background-repeat: no-repeat;
+    background-image: url('free-icon-check-box-9490039.png');
+}
+input[type=checkbox]:checked + label {
+    background-image: url('free-icon-check-box-9490168.png');
+} */
+
+
+
     </style>
 </head>
 <body>
-  <input type="checkbox" id="myCheck">
-  <label for="myCheck">체크테스트</label>
+    <ul>
+        <li><input type="checkbox" id="myCheck"><label for="myCheck">체크테스트</label></li>
+        <li></li>
+        <li> <input type="checkbox" id="check1"><label for="check1"></label>체크</li>
+        <input type="checkbox" name="checker" id="checker1"><label for="checker1">체크1</label>
+        <input type="checkbox" name="checker" id="checker2"><label for="checker2">체크2</label>
+        <input type="checkbox" name="checker" id="checker3" disabled><label for="checker3">체크3</label>
+        <input type="checkbox" id="check1">
+        <label for="check1"></label>체크
+    </ul>
+ 
 </body>
 </html>
