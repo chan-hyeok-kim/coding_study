@@ -1,0 +1,11 @@
+temp = int(input("기온은 어때요?"))
+if 30<=temp:
+   print("너무 더워요")
+elif 10<= temp <30:
+   print("견딜만 해요")
+else: 
+   print("아마 추워요")
+
+
+for waiting_no in [0,1,2,3,4]:
+   print("대기번호 : {0}".format(waiting_no))
