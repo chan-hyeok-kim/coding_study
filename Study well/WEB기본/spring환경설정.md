@@ -76,6 +76,27 @@
 ```
   - pox.xml에 - commons-fileupload 추가
 
+2. lombok
+ - pom.xml에 추가
+```
+	<!-- lombok -->
+		<dependency>
+  		<groupId>org.projectlombok</groupId>
+  		<artifactId>lombok</artifactId>
+  		<version>1.18.28</version>
+  		<scope>provided</scope>
+  	</dependency>
+
+```
+2-1.
+ - getter,setter안될 경우 외부에서 다운 추가
+ - 경로 : https://projectlombok.org/download
+ - *주의* 버전은 pom.xml에 설치한 거랑 같은 거로
+2-2. 추천
+ - 또 다른 방법
+ - STS를 끈 상태에서 lombok.jar 다운받은 후 실행(반드시 꺼야 함)
+ - 자바 11이라 lombok은 1.18.4로 해줬다
+@Data로 사용
 
 ### 버전 확인
 
@@ -134,3 +155,4 @@
 - javascript 1.0
 
 ```
+
