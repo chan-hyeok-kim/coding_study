@@ -267,8 +267,39 @@ refundCheck컬럼을 추가하여
 OAuth20Service을 빌더하고
 ID 이름, 이메일 받는것에 성공
 
+집에 와서 확인해보니
+네이버 
+
+--- 8월 29일 --
+
+반드시 환불을 자바(홈페이지)에서 해야만 하는 이유
+
+1. 관리자 부재 시 일정 기간 내 자동 환불되어야 함 
+2. 잘못 눌러서 바로 결제취소를 하는 경우
+3. 이렇듯 자동 환불해야할 상황들이 있음.
+4. 관리자가 환불이유를 보고 환불해야 함(테이블의 필요성)
+
+그러므로 환불은 구현해놔야 했다.
 
 
+
+결제 배경색
+#F8F9FA
+
+
+결제창을 다듬고 있는데 문제 발생.
+문제 1 : samesite cookie이슈로 결제창이 안열림.
+크롬 samesite 디폴트가 Lax라서 생기는 문제.
+버전 문제로 스프링에 response.getHeaders() 메서드도 없어서 어떤 방법으로
+samesite=none을 만들어주는가가 문제였다.
+
+스프링 프레임워크 버전도 안 맞아서인지
+org.springframework.http.ResponseCookie도 이용할 수 없었다
+
+
+document.cookie = "cookie1=soo; SameSite=Lax"; 
+document.cookie = "cookie2=soo"; 
+document.cookie = "cookie3=hoo; SameSite=None; Secure";
 
 
 
