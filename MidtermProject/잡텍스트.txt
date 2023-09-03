@@ -35,3 +35,64 @@
 			  
 			  
 		  	// })
+
+
+
+
+
+
+
+
+------------------
+
+
+
+//		Date date = new Date(bookDTO.getStartTime());
+//		java.util.Date startDate = bookDTO.getStartTime();
+//		Calendar startCalendar = Calendar.getInstance();
+//		startCalendar.setTime(startDate);
+//		System.out.println(startCalendar.getTime());
+//		String startTime = startCalendar.getTime().toString();
+//		startTime = startTime.substring(11, 16);
+//		System.out.println(startTime);
+//		
+//		java.util.Date endDate = bookDTO.getEndTime();
+//		Calendar endCalendar = Calendar.getInstance();
+//		endCalendar.setTime(endDate);
+//	    String endTime = endCalendar.getTime().toString();
+//		endTime = endTime.substring(11, 16);
+//	    System.out.println(endTime);
+		
+
+
+돈주앙 파티룸
+
+
+10인까지 수용가능한 14평의 단독공간
+100인치 스크린 빔프로젝터(고화질, 핸드폰 미러링 가능, hdmi 노트북 연결가능)
+블루투스 스피커
+냉난방 에어컨 구비+바닥난방 가능
+무선와이파이
+냉장고(냉장, 냉동실 구비)
+조리가 가능한 하이라이터(2구)
+싱크대
+기본식기 및 컵
+전자레인지
+각종조리도구
+거울 포토존 (전신거울)
+옷걸이
+라운지소파 및 테이블
+바 테이블 (6인 착석가능)
+루프탑 공간(남산타워뷰, 힐튼뷰)
+내부 화장실 구비
+다양한 조명 연출 가능(은은한 선셋조명 구비)
+화장실 단독 사용
+
+
+서울 광진구 광나루로 441
+
+
+150,000
+
+
+ 01077777777
