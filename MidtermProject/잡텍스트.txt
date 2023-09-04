@@ -96,3 +96,89 @@
 
 
  01077777777
+
+
+---9월 4일--
+
+사용시간이 안찍힌다
+찍었던 10시부터 18시.
+조금 수정해야겠다.
+
+
+
+MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
+		
+		BookDTO bookDTO = new BookDTO();
+		bookDTO.setId(memberDTO.getId()); 
+		
+		List<BookDTO> bl = bookService.getList(bookDTO);
+		
+		List<PayDTO> pl = new ArrayList<PayDTO>();
+		for(BookDTO b: bl) {
+			PayDTO payDTO = new PayDTO();
+			payDTO.setBookNum(b.getBookNum()); 
+			payDTO = payService.getPayInfo(payDTO);	
+			pl.add(payDTO);
+		}
+		
+		if(pl.size()!=0) {
+			model.addAttribute("payList", pl);
+		}
+		
+
+
+
+
+
+
+
+
+
+<script>
+let id = '${member.id}'
+
+$('#book-list-btn').click(function(){
+	console.log("진행내역")
+	 $.ajax({
+	        type:'GET',
+	         url:'/book/list?id='+id
+	    ,success:function(result){
+	    	$('#gridDiv').html(result);
+	    	console.log(result);
+	    }
+	    })
+	
+})
+   
+</script>
+
+
+
+
+
+
+Date date=bookDTO.getBookDate();
+            SimpleDateFormat dfm = new SimpleDateFormat("yyyy-MM-dd");
+            
+            String str=dfm.format(date);
+            System.out.println(str);
+            
+            start=str+" "+start;
+            end=str+" "+end;
+            SimpleDateFormat sfm = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            Date startHour = sfm.parse(start);
+            Date endHour = sfm.parse(end);
+            System.out.println(startHour);
+            System.out.println(endHour);
+           
+            java.sql.Date startHour2=new java.sql.Date(startHour.getTime());
+            java.sql.Date endHour2=new java.sql.Date(endHour.getTime());
+            bookDTO.setStartTime(startHour2);
+            bookDTO.setEndTime(endHour2);
+            
+
+
+<tr>
+       <td>사용시간</td>
+       <td id="bookTime" data-startTime="${list.startTime}" data-endTime="${list.endTime}"></td>
+      </tr>
