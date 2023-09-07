@@ -628,6 +628,69 @@ list.add로 값들을 하나씩 넣은 후에 model에 보내주었다
 
 [{start=Wed Sep 13 16:00:00 KST 2023, end=Wed Sep 13 20:00:00 KST 2023, id=id1}, {start=Wed Sep 13 16:00:00 KST 2023, end=Wed Sep 13 20:00:00 KST 2023, id=id1}, {start=Wed Sep 13 16:00:00 KST 2023, end=Wed Sep 13 20:00:00 KST 2023, id=id1}]
 
+달력도 같이 꾸며주면서 
+1,2번을 70%정도 완료했다.
+나머진 내일 해야지.
+
+--9월 7일--
+
+예약 승인 관리 페이지//
+
+배열로 넣어주어서 이벤트가 나오긴했는데.
+어째서인지 날짜가 13일로 고정되어 있었다.
+
+6일 날짜 예약치는 6일에 찍혀야 한다.
+
+(해결: 반복문 값을 넣어주는 Map을 for문 안에 넣었어야했는데 안넣고해서 그런거였다)
+
+
+
+
+참고로 빈페이지에서는 (AJAX전송) 예약 내역이 없습니다 라고
+텍스트가 나오게하자.
+
+전달 사항은 모달로 볼 수 있게끔
+
+
+
+
+환불 규정에 맞게 환불메서드실행.
+하게 해야함.
+
+
+
+let contentsList =[]
+$('btn-contents').attr('data-contents')
+$('.modal-body').html(${i.contents});
+contentsList.push($('btn-contents').attr('data-contents'));
+
+
+이미 예약된 정보는 
+예약 달력에 체크해서 못하게 해야함.
+.
+시간대도 마찬가지
+
+
+
+
+예약페이지//
+
+이용 시간에서 ajax를 쏴서 시작시간 종료시간에 
+
+option에서
+해당 시간 X추가
+
+예약된 시간 누르면 '이미 예약된 시간대입니다.'
+라고
+출력
+
+bookcheck가 승인상태일때,
+start end 시간 받아와서 보내주면됨.
+
+보내는 데이터는 date bookdate
+받는 데이터는 book전체
+
+booklist가져와야함.
 
 
 
