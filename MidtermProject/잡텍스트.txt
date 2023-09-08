@@ -182,3 +182,65 @@ Date date=bookDTO.getBookDate();
        <td>사용시간</td>
        <td id="bookTime" data-startTime="${list.startTime}" data-endTime="${list.endTime}"></td>
       </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+				<div class="row justify-content-center pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+          	<span class="subheading">Our Delightful offerings</span>
+            <h2>Tastefully Yours</h2>
+          </div>
+        </div>
+				<div class="row">
+				<c:forEach items="${list}" var="d" varStatus="i">
+					<div class="col-md-3 d-flex">
+						<div class="product ftco-animate fadeInUp ftco-animated">
+							<div class="img d-flex align-items-center justify-content-center" style="background-image: url(/resources/upload/product/${d.productFileDTOs[0].fileName});">
+								<div class="desc">
+									<p class="meta-prod d-flex">
+										<a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+										<a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-heart"></span></a>
+										<a href="#" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
+									</p>
+								</div>
+							</div>
+							<div class="text text-center">
+								<span class="sale">Sale</span>
+								<span class="category">Brandy</span>
+								<h2>Bacardi 151</h2>
+								<p class="mb-0"><span class="price price-sale">$69.00</span> <span class="price">$49.00</span></p>
+							</div>
+						</div>
+					</div>
+					
+				</c:forEach>
+
+
+
+
+
+ <c:forEach items="${list}" var="d" varStatus="i">
+   <c:if test="${i.count le 2}">
+       </c:if>
+  </c:forEach> 
+
+/resources/upload/product/${d.productFileDTOs[0].fileName}
+
+
+
+
+환불이
+
+

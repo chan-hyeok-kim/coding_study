@@ -693,4 +693,35 @@ start end 시간 받아와서 보내주면됨.
 booklist가져와야함.
 
 
+selectMirror: true
 
+
+String str = "2019/05/01 00:59:29";
+SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+Date strToDate = null;
+
+Thu Sep 21 2023 00:00:00 GMT+0900
+
+Thu Sep 14 2023 00:00:00 GMT+0900 (한국
+
+
+--9월 8일---
+
+마무리 단계로 접어들려고 한다.
+
+해야할일을 쭉 정리해보도록 했다.
+
+결제쪽:
+시간당 얼마 넣는 것도 계산해야함
+
+
+환불쪽: 
+환불을 신청하고 기다려야하는 경우(당일날 이후) ,
+환불 이틀 전에는 총 금액의 70%만 환불되게끔 하고
+나머지는 바로 환불(refundcheck가 바로 1이되어야함)
+
+지난 내역에서 환불한 건은
+환불하기 버튼이 이미 환불하셨습니다로 바뀌어야 함
+
+setperpage3개씩?
+페이징
