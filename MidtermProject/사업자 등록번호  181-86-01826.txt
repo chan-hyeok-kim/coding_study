@@ -23,10 +23,10 @@
 예약 
 
 -- 파트너 --
+사업자 등록
 공간등록
-
 예약 승인
-
+환불 승인
 
 
 --멤버--
@@ -38,6 +38,14 @@
 환불내역
 
 --관리자--
+파트너승인
+파트너해제
+관리자승인
+관리자해제
+공지사항 등록
+공지사항 수정
+공지사항 삭제
+
 
 
 
@@ -47,3 +55,18 @@
 할거
 리뷰 내역 쓰는 자격-> 실제로 결제내역있는사람
 소셜로그인 둘다 체크
+
+
+
+//	      3.DB에 해당 유저가 존재하는지 체크 ->호스트 가입시에 넣어야할듯
+//	      반드시 memberDTO로 실행해야함
+//	     MemberDTO = memberService.getBySns(MemberDTO);  
+//          if(MemberDTO == null) {
+//        	  model.addAttribute("result","존재하지 않는 사용자입니다 가입해주세요");
+//          }else {
+//        	  model.addAttribute("result",snsMemberDTO.getSnsName() + "님 반갑습니다.");
+        	  //4. 존재 시 강제 로그인, 미존재시 가입페이지로
+
+
+
+http://localhost:82/member/auth/naver/callback
