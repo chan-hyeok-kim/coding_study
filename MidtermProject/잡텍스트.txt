@@ -431,3 +431,47 @@ function getMap(xl, yl) {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+
+
+
+
+페이매퍼
+리펀드 체크리스트
+
+  <select id="getCheckList" resultType="refundDTO" parameterType="Map">
+       SELECT * FROM
+		(SELECT ROWNUM R, B.*
+		 FROM(SELECT * FROM REFUND
+		 WHERE REFUNDNUM>0
+		   AND REFUNDNUM LIKE '%' || #{pager.search} || '%'
+		   AND ID=#{member.id}
+		 ORDER BY REFUNDNUM DESC) B)
+		WHERE R BETWEEN #{pager.startRow} AND #{pager.lastRow}   
+  </select>
+
+
+
+
+<script type="text/javascript">
+ id = '${member.id}'
+	//$('#data-id').attr('data-id')
+page = '${pager.page}'
+
+$('.move').click(function(){
+  $('#page').val($(this).attr('data-num'));
+ let listPage = $('#page').val(); 
+ let listSearch = $('#search').val(); 
+ $.ajax({
+	type:'GET',
+	url:'/pay/refundList?id='+id+'&page='+listPage+'&search='+listSearch
+    ,success:function(result){
+		$('#entire').empty();
+		console.log(result)
+		$('#entire').append(result);
+	}  
+})
+}) 
+
+
+</script>
