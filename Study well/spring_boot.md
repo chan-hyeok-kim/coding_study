@@ -16,6 +16,9 @@ java -jar spring~~~
 * XML도 없음
 * jsp 없음 
 * spring web에 json 라이브러리도 포함
+* sqlsession안씀 ->대신에 @Repository 안쓰고, @Mapper를 쓴다
+* DAO는 인터페이스로
+
 
 ```
 
@@ -72,3 +75,11 @@ server.port=82
 ```
 
 
+#### 라이브러리 에러 발생 시(매퍼)
+
+```
+
+C:\Users\GDJ68\.m2\repository
+내부 파일 및 폴더 전부 삭제 후 스프링 켜기
+
+```
