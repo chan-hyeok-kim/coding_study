@@ -90,3 +90,96 @@ Successfully copied 27.3MB to myweb:/usr/local/tomcat/webapps
 ubuntu@ip-172-31-43-90:~$ sudo docker exec -it myweb /bin/bash  
 
 ```
+
+
+사용했던 명령어들
+```
+
+
+  sudo apt-get update
+    2  sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    3  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    4  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    5  sudo apt-get update
+    6  sudo apt-get install docker-ce docker-ce-cli containerd.io
+    7  sudo systemctl status docker
+    8  cd
+    9  exit
+   10  cd
+   11  ls
+   12  pwd
+   13  apt list --upgradable
+   14  docker --version
+   15  history
+   16  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   17  docker --version
+   18  sudo docker pull wnameless/oracle-xe-11g-r2
+   19  sudo docker run -d -p 1521:1521 -e ORACLE_PASSWORD=oracle --name db gvenzl/oracle-xe-11g-r2
+   20  sudo docker run -d -p 1521:1521 -e ORACLE_PASSWORD=oracle --name db wnameless/oracle-xe-11g-r2
+   21  docker ls
+   22  docker img
+   23  sudo docker ps
+   24  exit
+   25  ifconfig
+   26  ipconfig
+   27  docker ls
+   28  docker ls -a
+   29  docker ps -a
+   30  history
+   31  docker ps
+   32  ls
+   33  sudo docker ps
+   34  sudo docker ps -a
+   35  sudo docker start db
+   36  docker ps
+   37  sudo docker ps
+   38  sudo docker ps
+   39  sudo docker start db
+   40  sudo docker ls
+   41  sudo docker ls -a
+   42  sudo docker ps -a
+   43  sudo docker ps
+   44  sudo docker start db
+   45  sudo docker start dbb
+   46  sudo docker start db
+   47  sudo docker restart db
+   48  sudo docker start db
+   49  ls -a
+   50  ls
+   51  rm -f main-1.0.0-BUILD-SNAPSHOT.war
+   52  ls -l
+   53  sudo docker cp ~/ROOT.war myweb:/usr/local/tomcat/webapps
+   54  sudo docker exec -it myweb /bin/bash
+   55  pwd
+   56  docker ps
+   57  sudo docker ps
+   58  sudo docker images
+   59  sudo docker pull tomcat
+   60  sudo docker images
+   61  -i
+   62  sudo docker run -p 80:8080 --name myweb tomcat
+   63  ls
+   64  sudo docker cp ~/ROOT.war myweb:/usr/local/tomcat/webapps
+   65  sudo docker exec -it myweb /bin/bash
+   66  sudo docker start myweb
+   67  sudo docker exec -it myweb /bin/bash
+   68  sudo docker images
+   69  sudo docker pull mariadb
+   70  mysql -u root
+   71  sudo mysql -u root
+   72  mysql -u root -p
+   73  sudo apt update
+   74  sudo docker image
+   75  sudo docker images
+   76  sudo docker run -d -p 3306:3306 -e MARIADB_ROOT_PASSWORD=1234 --name maria mariadb
+   77  sudo docker ps
+   78  sudo docker ps -a
+   79  sudo docker stop tomcat
+   80  sudo docker stop myweb
+   81  mysql -u root -p
+   82  sudo docker exec -it mariadb /bin/bash
+   83  sudo docker exec -it maria /bin/bash
+   84  sudo docker start maria
+
+
+```

@@ -83,3 +83,11 @@ C:\Users\GDJ68\.m2\repository
 내부 파일 및 폴더 전부 삭제 후 스프링 켜기
 
 ```
+
+#### jsp사용시 추가
+
+```
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+```
