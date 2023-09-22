@@ -91,3 +91,14 @@ spring.mvc.view.prefix=/WEB-INF/views/
 spring.mvc.view.suffix=.jsp
 
 ```
+
+#### properties 내용 거름망
+
+.gitignore에 다음처럼 내용 추가
+
+```
+### Custom ###
+application-dev.properties
+application-prod.properties
+
+```
