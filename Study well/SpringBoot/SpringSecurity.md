@@ -23,7 +23,57 @@
 	 - 리소스에 접근하는 대상의 비밀번호
 
 
+
+  --- 원리 ---
+
+1. HTTP Session에 Seurity Session을 생성 함 ( Seurity Session = Security Context Holder)
+2. Security Context Holder -> Security Context 가 있음
+
+--------------------------------------------------------------------------------------------
+	 Java에서 Security Context 정보 출력
+--------------------------------------------------------------------------------------------
+	a. Session 이용
+	 HTTPSession에 'SPRING_SECURITY_CONTEXT' 속성명으로 사용 가능
+		Enumeration<String> en = session.getAttributeNames();
+		while(en.hasMoreElements()) {
+			System.out.println(en.nextElement());  //SPRING_SECURITY_CONTEXT
+		}
+		
+		Object obj=(session.getAttribute("SPRING_SECURITY_CONTEXT"));
+		
+		SecurityContextImpl sc = (SecurityContextImpl)obj;
+		System.out.println(sc);
+
+	b. SecurityContextHolder 이용
+
+		SecurityContext context = SecurityContextHolder.getContext();
+		System.out.println(context);
+
+--------------------------------------------------------------------------------------------
+	출력 결과 sc, context 같은 내용
+--------------------------------------------------------------------------------------------
+SecurityContextImpl 
+[Authentication=UsernamePasswordAuthenticationToken 
+	[Principal=org.springframework.security.core.userdetails.User 
+		[Username=user, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, 
+			AccountNonLocked=true, Granted Authorities=[]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails 
+			[RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=60C9C3D3B9E7A5F3C1737FB3010D8983], Granted Authorities=[]]]
+
+
+2. Security Context Holder -> Security Context -> Authentication 이 있음
+3. 필요한 정보는 Authentication
+
+
+참고
+https://cookiee.tistory.com/520
+
+
+
+
 ```
+
+
+
 
 #### 2. 설정
 
@@ -238,3 +288,16 @@ memberService에 loadUserByUsername 재정의
 ```
 
 
+#### 기타
+
+* 요청 시 servlet 기본 필터 ->security 필터를 거친다
+* uri나 url변경 가능
+
+* 휴면계정 전환 - 로그인 핸들러 사용
+* 로그아웃 필터에 내장된	   
+	    - 로그아웃 핸들러도 사용 가능
+		- Logout 기능을 활성화하면 LogoutFilter 가 생김 
+		해당 필터 내부에는 이미 로그아웃 핸들러 존재.
+
+* getPrincipal()시 Object타입은 memberVO의 부모를 상속받지 않는다
+* 그러나 userDetails는 구현된다
