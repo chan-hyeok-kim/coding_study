@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://127.0.0.1:82/notice/list">List</a>
+    <button type="button" id="add">ADD</button>
+
+    <script>
+        document.getElementById('add').addEventListener("click", function(){
+            fetch("http://127.0.0.1:82/notice/addTest",{
+            method:"POST",
+            body: {
+                boardTitle:"제목"
+
+            }
+        })
+  
+        })
+     
+    </script>
+</body>
+
+</html>
