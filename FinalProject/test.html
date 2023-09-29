@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      @keyframes post-ani {
+    25% {
+        transform: rotate(2deg) scale(1.01);
+    }
+ 
+    50% {
+        transform: rotate(0deg) scale(1);
+    }
+ 
+    75% {
+        transform: rotate(-2deg) scale(1.01);
+    }
+}
+.thumbnail:hover {
+	opacity: 0.9;
+	animation: post-ani 0.8s linear 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="thumbnail"><img src="beaver-head.png"></div>
+</body>
+</html>
