@@ -1,0 +1,23 @@
+SSO(Single Sign-On)
+
+IPSec(IP보안)
+ - 네트워크에서의 안전한 연결을 설정하기 위한 통신 규칙 또는 프로토콜 세트
+
+SSL(Secure Sockets Layer) 
+ - 웹사이트와 브라우저 사이(또는 두 서버 사이)에 전송되는 데이터를 암호화하여 
+   인터넷 연결을 보호하기 위한 표준 기술
+ - TCP/IP 계층과 애플리케이션 계층 사이에서 인증, 암호화, 무결성을 보장하는 프로토콜
+
+S-HTTP(Secure Hypertext Transfer Protocol)
+ - 클라이언트와 서버 간에 전송되는 모든 메시지를 암호화
+
+
+RTO(Recovery Time Objective)/RPO(Point) 
+ - 비상사태 또는 업무 중단 시점으로부터 복구되어 정상 가동될 때까지의 소요 시간
+ - RPO는 복구 기준점
+
+IPC(Inter-Process Communication) - 모듈 간 통신 방식을 구현하기 위해 사용되는 대표적인
+프로그래밍 인터페이스 집합
+
+SIEM - 이벤트, 빅데이터
+ESM - 위와 같으나 빅데이터 X
