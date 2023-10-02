@@ -28,3 +28,5 @@
 
 다중 버전 병행 제어(Multi-version Concurrency Control) 
 - 한 데이터에 대해 여러 버전의 값을 유지하며 관리하는 방식
+
+
