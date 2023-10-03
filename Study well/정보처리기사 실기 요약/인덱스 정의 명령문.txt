@@ -1,0 +1,2 @@
+CREATE INDEX 인덱스명 
+      ON 테이블명 (속성명 ASC/DESC)
