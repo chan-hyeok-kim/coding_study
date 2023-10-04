@@ -18,7 +18,7 @@
 검증 기준
 문장 검증 기준  모든 구문이 한번이상 수행   - Statement Coverage
 분기 검증 기준  모든 조건문이 한번이상 수행  - Branch Coverage, Decision coverage
-조건 검증 기준  모든 조건문(TRUE,FALSE)인 경우 수행  - Condition Coverage
+조건 검증 기준  전체 조건문에 상관없이 개별 조건문(TRUE,FALSE)인 경우 수행  - Condition Coverage
 분기/조건 기준  - Branch/Condition Coverage
 
 
@@ -46,6 +46,18 @@
 -> 인수 테스트(알파, 베타)    요구사항 확인
 
 회귀 테스트(regression) - 소프트웨어의 변경 또는 수정된 코드에 새로운 결함이 없음을 확인하는 테스트
+
+
+빅뱅 테스트 : 드라이버/스텁 없이 실제 모듈로 테스트 
+
+백본 테스트 : 드라이버/스텁을 필요에 따라 만들어 사용하는 방식
+
+
+
+샌드위치(혼합식 테스트)
+상향식과 하향식의 장점을 이용하는 방식
+
+
 
 
 
