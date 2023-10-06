@@ -3,7 +3,7 @@ Point to Point
 
 Hub & Spoke 허브 시스템을 통해 데이터를 전송하는 중앙 집중형 방식
 
-Message bus
+Message Bus
 - 애플리케이션 사이에 미들웨어를 두어 처리하는 방식
 
 Hybrid
