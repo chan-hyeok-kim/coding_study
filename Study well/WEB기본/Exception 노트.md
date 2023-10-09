@@ -193,10 +193,19 @@ DELETE나 UPDATE 시 COMMIT 안해줘서 생긴 문제
 
 ### MIME type 에러 
 
-문제: zTree를 사용하려 하는데, 다음과 같이 오류 메시지가 떴다.
+문제 : zTree를 사용하려 하는데, 다음과 같이 오류 메시지가 떴다.
 
 <img src="화면 캡처 2023-10-09 103148.png" width="200" height="40">
 
 원인 - 경로를 잘못 설정했을 경우 많이 발생
+해결 : 경로를 수정해서 해결.
+(NOTFOUND가 안뜨길래 다른 문제일 줄 알았음)
 
-해결: 
+
+### Dependency Injection 에러
+failed to parse : ApprovalMapper.xml
+
+원인 - config.xml에 alias 등록을 안해서 발생
+해결 : 처음에는 매퍼 문제인지 알았는데, alias만 등록하면 해결되는 문제였다. 예외 메시지만 보고 착각하지 않도록 유의해야겠다.
+
+
