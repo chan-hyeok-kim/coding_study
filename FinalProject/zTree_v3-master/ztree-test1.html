@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<HTML>
+    <link href="
+https://cdn.jsdelivr.net/npm/ztree@3.5.24/css/metroStyle/metroStyle.min.css
+" rel="stylesheet">
+
+ <HEAD>
+  <TITLE> ZTREE DEMO </TITLE>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="css/demo.css" type="text/css">
+  <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+  <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+  <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+  <SCRIPT LANGUAGE="JavaScript">
+   var zTreeObj;
+   // zTree configuration information, refer to API documentation (setting details)
+   var setting = {
+    check: {
+      autoCheckTrigger:false,
+      chkStyle: "checkbox",
+      enable:true,
+      chkboxType:{"Y":"ps","N":"ps"},
+      nocheckInherit:false,
+      chkDisabledInherit:false,
+      radioType:"level"
+    }
+
+   };
+   // zTree data attributes, refer to the API documentation (treeNode data details)
+   var zNodes = [
+   {name:"페인트 오피스", open:true, children:[
+      {name:"인사팀"}, {name:"재무회계팀"},
+      {name:"개발팀"}, {name:"생산팀"},{name:"영업팀"}]},
+   {name:"test", open:true, children:[
+      {name:"test_1"}, {name:"test_2"}]}
+   ];
+   $(document).ready(function(){
+      zTreeObj = $.fn.zTree.init($("#tree"), setting, zNodes);
+   });
+  </SCRIPT>
+ </HEAD>
+<BODY>
+<div>
+   <ul id="tree" class="ztree"></ul>
+</div>
+<script src="ztree-test1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="
+https://cdn.jsdelivr.net/npm/ztree@3.5.24/js/jquery.ztree.all.min.js
+"></script>
+</BODY>
+
+</HTML>
