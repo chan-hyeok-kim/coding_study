@@ -1,0 +1,10 @@
+상위 코드를 검색할때는
+SELECT *
+  FROM 테이블명
+ WHERE CD = 'GCY001'
+
+상세코드를 검색할때는
+SELECT *
+  FROM 테이블명
+ WHERE UP_CD = 'GCY001'
+로 조회하시면 되요
