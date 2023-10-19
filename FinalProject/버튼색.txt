@@ -1,7 +1,8 @@
 .btn-info
 #90caf9
 
-
+배경
+#EEF1F6
 
 page-link
 
