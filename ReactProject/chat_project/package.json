@@ -1,0 +1,15 @@
+{
+  "name": "chat_project",
+  "version": "1.0.0",
+  "description": "1. 백엔드 세팅 :데이터베이스 세팅, 웹소켓 세팅\r 2. 프론트엔드 세팅 : 웹소켓 세팅\r 3. 백엔드 프론트엔드 연결 테스트\r 4. 유저 로그인\r 5. 메세지 주고받기",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.7.2"
+  }
+}
