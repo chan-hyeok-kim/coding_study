@@ -101,6 +101,80 @@ HTML 을 PDF로 변환하는 오픈소스
 15페이지가 나왔다.
 
 
+---10 22일---
+- 내 결재 관리 : 해당 아이디(사번)와 관련된 결재자료만 나옴
+- 기안서 통합관리 : 전부 나옴
+
+기본 템플릿이 제공하는 아이콘만으론 부족해서 
+구글 아이콘 추가함
+
+링크:
+https://fonts.google.com/icons
+
+
+CDN 한줄만 추가해주면됨
+```
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <p class="regular">Montserrat Regular 400</p>
+    <p class="medium">Montserrat Medium 500</p>
+    <p class="bold">Montserrat Bold 700</p>
+  </body>
+</html>
+Colored by Color Scripter
+
+```
+
+- 문서 양식
+문서양식을 만드려면 id가 있어야함.
+사원이라고 해야겠다.
+
+그럼 insert구문은 ...
+짜려고 하는데 문제 발생.
+
+1. 문서양식이 APPROVAL_NO를 참조하고 있었다.
+2. 어느게 맞는거지? 하다가
+생각해보니 문서양식이 있어야 결재를 하는 것이 가능했다.
+
+고로.
+문서양식 자체는 결재 이전에 존재해야 하고,
+테이블이 존재해야하니까.
+먼저 만들어져있어야한다.
+
+결론: 따라서 결재 테이블이 문서양식 테이블을 참조해야하지
+그런 생각을 가지고 컬럼들을 변경해주었다.
+
+
+- 컬럼 ADD
+DB는 기본적으로 뒤에서 추가되지만 마리아디비의 경우.
+FIRST AFTER 옵션을 지원하고 있었다.
+
+그래서
+```
+ALTER TABLE APPROVAL_TYPE ADD APPROVAL_TYPE_NO BIGINT AFTER EMPLOYEE_ID;
+
+```
+이런 식으로 어떤 컬럼 뒤에 올지 순서를 정할 수 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

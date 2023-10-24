@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <link
+    rel="stylesheet"
+    href="https://uicdn.toast.com/editor-plugin-table-merged-cell/latest/toastui-editor-plugin-table-merged-cell.min.css"
+  />
+  
+</head>
+<body>
+    
+<div id="editor"></div>
+ 
+     <!-- Editor -->
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <!-- Editor's Plugin -->
+  <script src="https://uicdn.toast.com/editor-plugin-table-merged-cell/latest/toastui-editor-plugin-table-merged-cell.min.js"></script>
+  
+<script>
+  const { Editor } = toastui;
+  const { tableMergedCell } = Editor.plugin;
+  
+const editor = new Editor({
+  // ...
+  el: document.querySelector('#editor'),
+  plugins: [tableMergedCell],
+  toolbarItems: [
+		['heading', 'bold', 'italic', 'strike'],
+		['hr', 'quote'],
+		['ul', 'ol', 'task', 'indent', 'outdent'],
+		['table', 'image', 'link'],
+		['code', 'codeblock'],
+		['scrollSync'],
+		//customToolbar
+	]
+});
+</script>
+</body>
+
+
+</html>
