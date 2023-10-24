@@ -173,4 +173,17 @@ UP_CD란 이름을 붙여서 추가해줘야한다.
 
 
 
+문서양식함 관리 add할때
+코드테이블에도 insert를 해야됨
+
+
+UP_CODE와 
+CODE_NAME필요함
+
+CODE에는 실제 +auto-increment들어감
+
+고정 SQL문
+INSERT INTO VALUES(REG_ID,REG_DATE,REG_MENU,MOD_ID,MOD_DATE,MOD_MENU)
+
+
 
