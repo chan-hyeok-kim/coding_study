@@ -214,6 +214,8 @@ ALTER TABLE APPROVAL_TYPE ADD APPROVAL_TYPE_NO BIGINT AFTER EMPLOYEE_ID;
 
 
 
+ INSERT INTO APPROVALTYPE(APPROVAL_TYPE_NO, EMPLOYEE_ID,APPROVAL_FORM,APPROVAL_TYPE_CD,REG_ID,REG_DATE,REG_MENU,MOD_ID,MOD_DATE,MOD_MENU)
+        VALUES(NULL,#{EMPLOYEE_ID},#{APPROVAL_FORM},#{APPROVAL_TYPE_CD},#{REG_ID},#{REG_DATE},#{REG_MENU},#{MOD_ID},#{MOD_DATE},#{MOD_MENU})
 
 
 
@@ -243,6 +245,42 @@ ztree
 list : approvalType=code
 totalList
 
+-- 10월 23일 --
+
+상위양식함을 둬서
+문서를분류하려면
+전체
+-결재
+-보고서
+-기타
+   
+
+등등 될거같다
+그렇다면 이를 구분할 컬럼이 필요하다.
+UP_CD란 이름을 붙여서 추가해줘야한다.
+
+일단 보류.
+나머지것들 되면
+추가하기로
+
+
+토스트UI를 깔았으니
+커스터마이징해주기로 했다.
+컬러피커가 기본적으로없어서 넣어줘야 한다
+
+
+
+문서양식함 관리 add할때
+코드테이블에도 insert를 해야됨
+
+
+UP_CODE와 
+CODE_NAME필요함
+
+CODE에는 실제 +auto-increment들어감
+
+고정 SQL문
+INSERT INTO VALUES(REG_ID,REG_DATE,REG_MENU,MOD_ID,MOD_DATE,MOD_MENU)
 
 
 

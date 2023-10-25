@@ -1,0 +1,3 @@
+.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.nav-profile) > .nav-link {
+    color: #29323d;
+}
