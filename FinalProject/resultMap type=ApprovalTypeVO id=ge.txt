@@ -1,0 +1,42 @@
+ <resultMap type="ApprovalTypeVO" id="getListResult">
+        <id column="APPROVAL_TYPE_NO" property="approvalTypeNo"/>
+        <result column="EMPLOYEE_ID" property="employeeId"/>
+        <result column="APPROVAL_FORM" property="approvalForm"/>
+        <result column="APPROVAL_TYPE_CD" property="approvalTypeCd"/>
+        <result column="REG_ID" property="regId"/>
+        <result column="REG_DATE" property="regDate"/>
+        <result column="REG_MENU" property="regMenu"/>
+        <result column="MOD_ID" property="modId"/>
+        <result column="MOD_DATE" property="modDate"/>
+        <result column="MOD_MENU" property="modMenu"/>
+        
+        <association javaType="CodeVO" property="codeVO">
+         <id column="CODE" property="code"/>
+        <result column="UP_CODE" property="upCode"/>
+        <result column="CODE_NAME" property="codeName"/>
+        <result column="REG_ID" property="regId"/>
+        <result column="REG_DATE" property="regDate"/>
+        <result column="REG_MENU" property="regMenu"/>
+        <result column="MOD_ID" property="modId"/>
+        <result column="MOD_DATE" property="modDate"/>
+        <result column="MOD_MENU" property="modMenu"/>
+        
+        </association>
+   </resultMap>
+
+
+
+---
+
+
+
+ $.ajax({
+	   type:'GET',
+	    url: 'upList',
+	    success:function(result){
+			let upArr=new Array();
+			for(r of result){
+			    r.name=r.codeName
+			    
+			    upArr.push(r);
+			}

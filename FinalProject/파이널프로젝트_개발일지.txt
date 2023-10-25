@@ -224,6 +224,12 @@ ALTER TABLE APPROVAL_TYPE ADD APPROVAL_TYPE_NO BIGINT AFTER EMPLOYEE_ID;
 
 -- 10월 23일 --
 
+이번주 TodoList
+- 전자결재 내용 넣고 페이징 처리하고 문서양식함 추가,문서양식함 리스트,문서(결재) 양식들 추가
+
+
+
+
 상위양식함을 둬서
 문서를분류하려면
 전체
@@ -261,3 +267,112 @@ INSERT INTO VALUES(REG_ID,REG_DATE,REG_MENU,MOD_ID,MOD_DATE,MOD_MENU)
 
 
 
+
+----10월  25일 -----
+
+CodeVO에 대한
+문제...
+
+commonsVO를 두는게 맞는가
+
+아니면 CodeVO를 전부 상속받는게 맞는가
+
+일단은 후자가 편하긴한데
+
+조인이나
+add의 경우 어떨까
+
+실제로 해보니 괜찮았다.
+
+훨씬 편해졌고 아직 문제가 생기는 곳도 없었다.
+
+자세한 사항은 멘토분에게 물어보기로 했다.
+
+
+
+
+하나를 체크하면 나머지 형제노드의 체크는 해제하려고 했는데
+
+
+console.log(treeId)
+	console.log(treeNode)
+	
+	nodes=treeNode.getParentNode();
+	console.log(nodes)
+	console.log(nodes.children)
+	let childArr=nodes.children
+	for(let i in childArr){
+		if(treeNode.name!=childArr[i].name){
+			childArr[i].checked=false;
+			
+               }
+	}
+왜인지 안굴러간다
+ var setting = {
+view: {
+		selectedMulti: false,
+		
+	}
+}
+를 설정해도 마우스를 그 위에 올리면 자동으로 체크가 되었다.
+이를 방지하기 위해서  다른 방식을 찾았다. ztree가 아닌 일반 자바스크립트 문법을 쓰기로 했다.
+siblings()함수를 처음 써봤는데,
+콘솔에 S.fn.init(4)이란 오브젝트 타입이 리턴되었다.
+
+어떻게 값을 꺼내거나 활용하는지 몰랐는데, 검색해보니 이는
+jquery 객체라는 녀석이고
+https://api.jquery.com/
+여기서 문서를 보면서 사용법을 익혀나갈 수 있단 걸 알았다.
+
+꺼내는 법은 대강 이러했다.
+
+```
+
+for (let i=0; i<otherNodes.length; i++){
+		node=otherNodes.get(i);
+		console.log(node);
+	}
+```
+
+
+
+
+HTMLCollection타입으로 나오고
+다시 HTMLCollection.item()으로꺼내고의 반복
+
+기나긴 시간 끝에 성공했다.
+
+
+```
+
+function myOnCheck(event, treeId, treeNode) {
+	
+    
+	
+	otherNodes = $('#' + treeNode.tId).siblings();
+	
+	
+	for (let i=0; i<otherNodes.length; i++){
+		node=otherNodes.get(i);
+		
+		span=node.children.item(1)
+		span.className='button chk checkbox_false_full';
+		
+	}
+nodes=treeNode.getParentNode();
+	
+	let childArr=nodes.children
+	for(let i in childArr){
+		if(treeNode.name!=childArr[i].name){
+			childArr[i].checked=false;
+			
+               }
+	}
+}
+최종 해결 코드는 위와 같았다.
+
+
+
+---10월 26일----
+
+어제 체크가 끝나서

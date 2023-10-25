@@ -1,0 +1,12 @@
+CodeVO codeVO=new CodeVO();
+	    String code=approvalTypeVO.getApprovalTypeCd();
+	    codeVO.setCodeName(approvalTypeVO.getCodeName());
+	    codeVO.setCode(code);
+	    codeVO.setUpCode(code.substring(0,3));
+	    
+	    codeVO=(ApprovalTypeVO)makeColumn.getColumn(codeVO, path, id);
+	    
+	    log.warn("====={}=={}====",codeVO,approvalTypeVO);
+	    
+	    codeService.setAdd(codeVO);
+		int result=approvalTypeService.setAdd(approvalTypeVO);
