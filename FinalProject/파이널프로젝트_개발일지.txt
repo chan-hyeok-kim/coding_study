@@ -222,6 +222,29 @@ ALTER TABLE APPROVAL_TYPE ADD APPROVAL_TYPE_NO BIGINT AFTER EMPLOYEE_ID;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---10월25일--
+
+ztree 
+
+list : approvalType=code
+totalList
+
 -- 10월 23일 --
 
 이번주 TodoList
