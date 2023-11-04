@@ -1,3 +1,661 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:22df1ce00c5aff215884c67a861c95d658dfa9fef153bac65119ed57c4dd0266
-size 15771
+----10월 13일---
+
+처음으로 문제 발생.
+
+코드화를 적용시켜보기로 했는데, 
+막상 테이블을 봐도 완벽히 이해가 가지 않았다.
+
+코드화 관리 테이블을 하나로 두기로 결정했다보니까 그런 것 같다.
+(보통은 공통코드관리 테이블이 있고, 코드종류별로 세부테이블도 따로 있는 편)
+
+
+
+결론적으로 중요한 포인트는
+
+1. 코드 관리 테이블에 PK 설정을 어떻게 해야하고, 컬럼을 어떻게 정해야 할지.
+2. 코드 관리 테이블과 다른 테이블들이 어떻게 참조로 엮어질 수 있는가
+
+
+
+멘토님의 답을 듣고
+참고자료(테이블 구조)와 같이 구현하는 법을 배웠다.
+
+문제 원인:
+코드 테이블을 참조하려고 했던 것이 원인.
+
+단순히 생각하면, 코드 테이블은 사전같은 거고.
+다른 테이블은 그 사전을 사용하기만 할 뿐,
+직접적으로 참조할 일은 없었던 거다.
+
+결론: 반드시 테이블끼리 엮어져야 한다고 생각한 기존방식이 화근이었다.
+
+
+--10월 16일 --
+
+
+1. DDL 쿼리문 
+파일별로 저장해서 가지기
+- 추가하거나 나중에 코멘트할 때 용이
+
+
+2. 주소API
+우편번호
+기본주소
+상세주소
+3 컬럼으로 분류(인사관리,거래처)
+
+아파트 몇층 등등 직접 입력하는 칸으로 
+->제공하는 지역코드있음
+
+지역구분코드 삭제
+
+3. AS-IS 
+기존의 것
+
+TO-BE
+기존의 것에서 변형될 내용
+
+
+4. 데이트는 서버 날짜로
+sysdate
+(출퇴근)
+
+5. 프로그레스 태그 사용
+
+캘린더도css있음
+
+
+6. 스마트 에디터
+토스트 UI 에디터 참고
+
+이미지 업로드 시 base64로 인코딩
+
+섬머노트
+이미지 업로드 시 서버에 물리파일 저장
+경로 읽어서 파일 가져옴
+
+
+
+todolist - 템플릿 응용
+
+7. 비밀번호 - 단방향 
+
+비밀번호 찾기
+임시비번
+단방향에서 사용
+hash
+Bcrypt
+
+8. PDF
+
+전자결재 승인났을때
+PDF형식으로 다운 가능하게 
+
+HTML 을 PDF로 변환하는 오픈소스
+
+-- 10월 17일 -- 
+
+화면 설계에 들어갔다.
+카카오톡 오븐 API를 활용했으며, 
+전자결재 + 공지사항 게시판 + Todolist + 코드 관리까지 하니
+15페이지가 나왔다.
+
+
+---10 22일---
+- 내 결재 관리 : 해당 아이디(사번)와 관련된 결재자료만 나옴
+- 기안서 통합관리 : 전부 나옴
+
+기본 템플릿이 제공하는 아이콘만으론 부족해서 
+구글 아이콘 추가함
+
+링크:
+https://fonts.google.com/icons
+
+
+CDN 한줄만 추가해주면됨
+```
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <p class="regular">Montserrat Regular 400</p>
+    <p class="medium">Montserrat Medium 500</p>
+    <p class="bold">Montserrat Bold 700</p>
+  </body>
+</html>
+Colored by Color Scripter
+
+```
+
+- 문서 양식
+문서양식을 만드려면 id가 있어야함.
+사원이라고 해야겠다.
+
+그럼 insert구문은 ...
+짜려고 하는데 문제 발생.
+
+1. 문서양식이 APPROVAL_NO를 참조하고 있었다.
+2. 어느게 맞는거지? 하다가
+생각해보니 문서양식이 있어야 결재를 하는 것이 가능했다.
+
+고로.
+문서양식 자체는 결재 이전에 존재해야 하고,
+테이블이 존재해야하니까.
+먼저 만들어져있어야한다.
+
+결론: 따라서 결재 테이블이 문서양식 테이블을 참조해야하지
+그런 생각을 가지고 컬럼들을 변경해주었다.
+
+
+- 컬럼 ADD
+DB는 기본적으로 뒤에서 추가되지만 마리아디비의 경우.
+FIRST AFTER 옵션을 지원하고 있었다.
+
+그래서
+```
+ALTER TABLE APPROVAL_TYPE ADD APPROVAL_TYPE_NO BIGINT AFTER EMPLOYEE_ID;
+
+```
+이런 식으로 어떤 컬럼 뒤에 올지 순서를 정할 수 있다.
+
+
+
+
+
+
+ INSERT INTO APPROVALTYPE(APPROVAL_TYPE_NO, EMPLOYEE_ID,APPROVAL_FORM,APPROVAL_TYPE_CD,REG_ID,REG_DATE,REG_MENU,MOD_ID,MOD_DATE,MOD_MENU)
+        VALUES(NULL,#{EMPLOYEE_ID},#{APPROVAL_FORM},#{APPROVAL_TYPE_CD},#{REG_ID},#{REG_DATE},#{REG_MENU},#{MOD_ID},#{MOD_DATE},#{MOD_MENU})
+
+
+
+
+
+
+
+---10월25일--
+
+ztree 
+
+list : approvalType=code
+totalList
+
+-- 10월 23일 --
+
+이번주 TodoList
+- 전자결재 내용 넣고 페이징 처리하고 문서양식함 추가,문서양식함 리스트,문서(결재) 양식들 추가
+
+
+
+
+상위양식함을 둬서
+문서를분류하려면
+전체
+-결재
+-보고서
+-기타
+   
+
+등등 될거같다
+그렇다면 이를 구분할 컬럼이 필요하다.
+UP_CD란 이름을 붙여서 추가해줘야한다.
+
+일단 보류.
+나머지것들 되면
+추가하기로
+
+
+토스트UI를 깔았으니
+커스터마이징해주기로 했다.
+컬러피커가 기본적으로없어서 넣어줘야 한다
+
+
+
+문서양식함 관리 add할때
+코드테이블에도 insert를 해야됨
+
+
+UP_CODE와 
+CODE_NAME필요함
+
+CODE에는 실제 +auto-increment들어감
+
+고정 SQL문
+INSERT INTO VALUES(REG_ID,REG_DATE,REG_MENU,MOD_ID,MOD_DATE,MOD_MENU)
+
+
+
+
+----10월  25일 -----
+
+CodeVO에 대한
+문제...
+
+commonsVO를 두는게 맞는가
+
+아니면 CodeVO를 전부 상속받는게 맞는가
+
+일단은 후자가 편하긴한데
+
+조인이나
+add의 경우 어떨까
+
+실제로 해보니 괜찮았다.
+
+훨씬 편해졌고 아직 문제가 생기는 곳도 없었다.
+
+자세한 사항은 멘토분에게 물어보기로 했다.
+
+
+
+
+하나를 체크하면 나머지 형제노드의 체크는 해제하려고 했는데
+
+
+console.log(treeId)
+	console.log(treeNode)
+	
+	nodes=treeNode.getParentNode();
+	console.log(nodes)
+	console.log(nodes.children)
+	let childArr=nodes.children
+	for(let i in childArr){
+		if(treeNode.name!=childArr[i].name){
+			childArr[i].checked=false;
+			
+               }
+	}
+왜인지 안굴러간다
+ var setting = {
+view: {
+		selectedMulti: false,
+		
+	}
+}
+를 설정해도 마우스를 그 위에 올리면 자동으로 체크가 되었다.
+이를 방지하기 위해서  다른 방식을 찾았다. ztree가 아닌 일반 자바스크립트 문법을 쓰기로 했다.
+siblings()함수를 처음 써봤는데,
+콘솔에 S.fn.init(4)이란 오브젝트 타입이 리턴되었다.
+
+어떻게 값을 꺼내거나 활용하는지 몰랐는데, 검색해보니 이는
+jquery 객체라는 녀석이고
+https://api.jquery.com/
+여기서 문서를 보면서 사용법을 익혀나갈 수 있단 걸 알았다.
+
+꺼내는 법은 대강 이러했다.
+
+```
+
+for (let i=0; i<otherNodes.length; i++){
+		node=otherNodes.get(i);
+		console.log(node);
+	}
+```
+
+
+
+
+HTMLCollection타입으로 나오고
+다시 HTMLCollection.item()으로꺼내고의 반복
+
+기나긴 시간 끝에 성공했다.
+
+
+```
+
+function myOnCheck(event, treeId, treeNode) {
+	
+    
+	
+	otherNodes = $('#' + treeNode.tId).siblings();
+	
+	
+	for (let i=0; i<otherNodes.length; i++){
+		node=otherNodes.get(i);
+		
+		span=node.children.item(1)
+		span.className='button chk checkbox_false_full';
+		
+	}
+nodes=treeNode.getParentNode();
+	
+	let childArr=nodes.children
+	for(let i in childArr){
+		if(treeNode.name!=childArr[i].name){
+			childArr[i].checked=false;
+			
+               }
+	}
+}
+최종 해결 코드는 위와 같았다.
+
+
+
+---10월 26일----
+
+어제 체크가 끝나서 하위 자식 노드들 조회해오는걸 하려고했는데
+첫번째 자식까진 잘불러오는데 두번째부턴 잘안됐다
+
+children란 이름으로 배열이 들어간게 콘솔에 찍히지만,
+반영이 안되는 이유를 모르겠어서
+simpleData타입으로 다시 시도해봤다.
+
+
+
+```
+
+var setting = {
+	data: {
+		simpleData: {
+			enable: true,
+			idKey: "id",
+			pIdKey: "pId",
+			rootPId: 0
+		}
+	}
+};
+var treeNodes = [
+    {"id":1, "pId":0, "name":"test1"},
+    {"id":11, "pId":1, "name":"test11"},
+    {"id":12, "pId":1, "name":"test12"},
+    {"id":111, "pId":11, "name":"test111"}
+];
+
+```
+이런식으로 만들어주니까 하위의 하위자식까지 잘 나왔다.
+적은 양의 데이터를 다루기에는 이쪽이 더 편한 것 같다.
+
+
+
+TOTAL
+
+앞으로 해야 할일:
+
+문서양식함 리스트에서 등록 누르면 코드값 넘어가게 하기
+
+기안서 결재라인 마무리
+결재양식 불러오기
+
+
+
+1) Map.length: 값이 0인 속성.
+
+2) Map.size: 맵의 키-값 쌍 갯수
+
+3) Map.clear(): 맵 초기화
+
+4) Map.entries(): 맵의 모든 키-값 쌍을 [key, value] 형태의 array로 만들어서 반환
+
+5) Map.forEach(): 맵의 모든 키-값 쌍에 대해서 콜백함수 사용
+
+6) Map.get(key): key값에 맞는 value값 반환
+
+7) Map.delete(key): key-value 쌍 삭제
+
+8) Map.has(key): 해당 key가 Map에 포함되어 있는지 확인
+
+9) Map.keys(): 맵의 모든 key들을 반환
+
+10) Map.set(key, value): 맵에 key-value 쌍을 집어넣음
+
+ 
+
+replaceChild()
+
+
+
+10월 27일
+    // 만든 data를 서버로 전송
+        $.ajax({
+          url: 'http://localhost:3000/api/members/upload',
+          type: 'POST',
+          data: data,
+          // JSON을 배열로 전달하려해서 나는 오류를
+          // 보내려해서나는 에러
+          contentType: false,
+          processData: false,
+          success: function (res) {
+            console.log('업로드된 파일 경로정보', res);
+          },
+        });
+
+
+
+이미지 확장자
+
+.jpg,.JPG,.jpeg,.JPEG,.png,.PNG,.gif,.GIF,.bmp,.BMP,.svg,.SVG,.webp,.WEBP
+
+제이쿼리 문법으로 가져올경우
+HTML은 제이쿼리 파일이 된다.
+기존 자바스크립트 document.getelementbyid나 document.queryselector로 해야 개별 객체를 가져올 수 있다.
+
+
+--10월 30일--
+
+
+마리아디비에서 AUTO_INCREMENT와 같이
+문자열을 붙여쓸 생각이다.(문자열+정수)
+
+
+코드 테이블에 자동으로 값이 들어가면 좋겠고, 그걸 SQL로 짜고싶었다.
+트리거를 사용해서 LAST_INSERT_ID()에 PK값을 더하는 법(따로 생성한 SEQ테이블의 PK)도 있었겠지만,
+
+CODE테이블의 일부만 필요했기에 MAX를 사용해줬다.
+
+
+
+
+
+code만들어야 돼..
+
+code를 자동생성하려면..
+
+ codeService.getLastId(codeVO);
+	   
+codeVO에는 upcode가 담겨야한다
+
+최근 거를 가져와서
+
+코드만 세팅해주면돼
+
+
+
+그럼 R01정보는 어디서오는가.
+
+PROPERTIES에 저장하고 조건절을 걸어서 상위코드(R01)정보를 주기로했다.
+
+
+
+
+SQL 함수를 썼을 때 컬럼명이 겹치면
+
+리절트맵 쓴다고 가정해보자
+
+
+
+
+---10월 31일---
+문서양식함에서 update를 진행중
+
+일반 양식함. 그위의 상위양식함과 코드 테이블까지 건드리니 꽤 복잡했다.
+
+
+로직이 어떻게 되냐면
+
+일단 부모(상위 분류)가 중복되면 안됨
+
+제이슨 객체에서 배열의 중복 값을 없애는 작업이 필요하단 뜻.
+
+const unique = upArr.map(function (val, index) {
+	return val['name'];
+}).filter(function (val, index, arr) {
+	return arr.indexOf(val) === index;
+});
+console.log(unique)
+처음엔 이런식으로 짜봤는데
+name값만 나와서
+
+
+const result=upArr.reduce((acc, v) => {
+    return acc.find(x => x.name === v.name) ? acc : [...acc, v];
+}, []);
+
+console.log(result)
+upArr=result;
+
+고심한 끝에
+객체도 보존할 수 있는 위의 방식을 찾아냈다.
+
+
+
+이제 자식 문서 차례
+자식 문서의 PID값이 자기 부모에 맞는 PID로 들어가야 한다
+
+만약 부모의 PID가 없다면 그전 부모의 id가 pid가되어야함
+
+배열..
+
+
+부모 배열
+자식 배열
+순서를 바꿔줘서 해결했다.
+내가 생각지못한 ID와 PID문제를 맞닥뜨리고 나서,
+psId라는 새로운 속성을 추가하니 손쉽게 해결되었다.
+
+근데 또 문제 발생.
+
+인사인사 총무 구매 생산(->순서)
+이런 순서면 맞게 할당이됐는데
+인사 구매구매  생산이런경우에는
+구매 1개가 총무로 밀려버렸다.
+
+
+내가하려는로직이 잘못되었음을 깨닫고 다시 정리해봤다.
+
+1. 부모가 가진 ID를 자식이 PID로 참조해야한다.
+2. 이를 구별하려면 부모는 가지고 있지만 자식에게는 없는 특별한 값이 필요하다.(이름은 다르되, 값은 같아야함)
+3. 참조하는 NO와 부모의 NO가 같으면 부모의 PSID를 자식의 ID로 준다라는 
+
+로직으로 새로해봤더니 제대로 됐다.
+
+
+
+
+
+
+'input[name=checkList]:checked'
+체크된 
+
+
+
+
+
+--11월 1일--
+
+
+검증해야 하는 부분들을 정리했다.
+1. document/list에서 신규양식 등록 시. 반드시 1개 이상의 상위양식함을 체크해주세요
+2. 문서양식명 비교해서 같은 이름이 있을 경우,add되지 않고 '이미 존재하는 문서양식명입니다. 다른 이름을 입력해주세요'
+라고 뜨게 함.
+
+
+
+문서양식함 삭제 추가하면서 알아낸 것.
+ajax를 써서 컨트롤러로 배열을 보낼때는 아래처럼 하면 된다
+
+백단:
+ public String setDelete(@RequestParam(value = "typeNoArr[]", required = false) List<String> typeNoArr
+
+프론트단:
+
+$.ajax({
+		type: 'POST',
+		url: '/document/delete',
+		data: {
+			typeNoArr: arr
+		}, success: function(result) {
+			
+			location.replace('/document/list');
+		}, error: function() {
+
+		}
+
+	})
+
+
+
+
+approval-line-add-blank란 아이디로 '결재선'에 해당하는 td영역 컨트롤 가능하게 함
+
+<!-- 에디터 &nbsp; 버그. 개행과 공백을 최소화 시키자. -->
+라 써져있는 메시지 위 td에 id="approval-line-add-blank" 넣어주면 됨
+
+
+
+
+
+
+-- 11월 2일--
+
+머지하기로 한 날이다.
+팀원들이 아직 오지않아서
+내가 할부분들 먼저하기로했다.
+
+결재 삭제 AJAX를 만들고
+수정을 만들어야했는데,
+수정이나 등록 창에서
+결재구분(양식)내용을 건드릴 순 있는데
+INPUT 자체를 직접 건드릴 수는 없게 해야겠다(ztree에서 선택해서 값을 가져오기 때문에)
+
+그리고
+결재자 권한 잇는 사람은
+첨언을 할수있게 해야 했다.
+
+
+본문에 첨언을 추가시키려면 문서양식함 수정에서
+본문 끝 여백에 ID 새로 달아줘야함
+
+<div id="addmonition"></div>
+넣어줬음
+
+
+
+머지한 후에
+가장 큰 문제
+Uncaught DOMException: Blocked a frame with origin "http://localhost:82" from accessing a cross-origin frame.
+    at HTMLIFrameElement.<anonymous> (http://localhost:82/se2/js/HuskyEZCreator.js:65:37)
+
+same-origin policy 에 의해 막혀버림.
+
+security 문제라고생각하여
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+			// ...
+			.headers()
+				.frameOptions().sameOrigin();
+	}
+}
+를 시도했지만 
+WebSecurityConfigurerAdapter가 deprecated되었다.
+
+
+이와 ㄴ관련된것이 security filterchain에있었다.
+.headers().frameOptions().sameOrigin(); 을 줘서 해결
+	
+
+
+----11월 3일----
+
+오늘은 사인을 결재선에 넣도록 하기로 했다.
+문서양식함 수정은 할 필요없고.
+
+자바스크립트를 건드리면된다
+
+overflow-wrap:break-word><br>뒤에
+<img id="sign-img-base" width="70px" height="40px" src="">
+삽입
+
+기안서 양식 등록할때 기안 문구는 따로 등록할 수 있게 했다.
+그래야 서명할 수 있을테니까

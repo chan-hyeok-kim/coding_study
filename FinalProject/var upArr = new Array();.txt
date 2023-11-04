@@ -1,3 +1,93 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:48ef457f42440faa71f87a2d99b0e757e3e562d9cc7d9b7d5f9dddca95fdec4b
-size 1443
+var upArr = new Array();
+
+
+let x = new Array();
+let z = new Array();
+//두번째 자식
+let xz = new Array();
+$('.get-up-code-name').each(function(i, item) {
+
+	upCodeName = $(this).attr('data-up-code-name');
+	codeName = $(this).attr('data-code-name');
+	cd = $(this).attr('data-up-type-cd');
+	no = $(this).attr('data-up-no');
+	approvalForm = $(this).html();
+
+
+	let y = [];
+
+	if (y.name != codeName && codeName != '') {
+		y.name = codeName;
+		y.pId = '1';
+		y.id = '2';
+		y.cd = cd;
+		y.no = no;
+		y.upCd = upCodeName;
+		y.form = approvalForm;
+   }
+		/*xz.push(y)
+		if (i > 1) {
+		console.log(xz[i - 1].upCd);
+		equalCheck = xz[i - 1].upCd;
+		if(y.upCd!=equalCheck){
+		 y.pid= y.pid+1;
+	  } 
+	}*/
+	/*var equalCheck;
+		if (i > 1) {
+			equalCheck = z[i - 1].name;
+			if (y.upCd != equalCheck) {
+				y.pid = y.pid + 1;
+				upArr.push(y);
+			} else {
+				upArr.push(y);
+			}
+		}
+
+	}*/
+
+	//첫번째 자식
+	let r = [];
+	
+
+
+
+	r.name = upCodeName;
+	r.pId = '0';
+	r.id = '1'
+	r.cd = cd
+	r.no = no;
+	r.open = 'true'
+	z.push(r)
+	console.log(z)
+	/*if (i > 1) {
+		console.log(z[i - 1].name);
+		equalCheck = z[i - 1].name;
+
+
+		if (r.name == equalCheck) {
+			upArr.push(r);
+		} else {
+			r.id = r.id + 1;
+			upArr.push(r);
+		}
+
+
+	}*/
+
+
+	console.log(upArr)
+
+})
+x.name = '성호페인트 문서함';
+x.id = '0';
+x.pId = 'root';
+x.open = 'true';
+upArr.push(x);
+
+
+
+
+
+
+
