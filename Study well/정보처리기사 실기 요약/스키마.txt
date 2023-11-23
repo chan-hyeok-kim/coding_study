@@ -1,3 +1,3 @@
-스키마
-
-데이터베이스의 구조와 제약조건에 관한 전반적인 명세를 기술한 것
+version https://git-lfs.github.com/spec/v1
+oid sha256:f04ef038759ab077ee18d50039f2fd8bde8dacbfad38ed40730c12c6fbd15767
+size 104

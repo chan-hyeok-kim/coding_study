@@ -1,10 +1,3 @@
-HTML.AllowedComments
-TYPE: lookup
-VERSION: 4.4.0
-DEFAULT: array()
---DESCRIPTION--
-A whitelist which indicates what explicit comment bodies should be
-allowed, modulo leading and trailing whitespace.  See also %HTML.AllowedCommentsRegexp
-(these directives are union'ed together, so a comment is considered
-valid if any directive deems it valid.)
---# vim: et sw=4 sts=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:9e552fae21b321f55b577cc9f2f2f6a8653871b9e48e563066f1976b84040fe5
+size 377

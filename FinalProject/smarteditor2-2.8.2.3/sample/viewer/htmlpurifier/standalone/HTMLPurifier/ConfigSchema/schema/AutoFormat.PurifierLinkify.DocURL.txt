@@ -1,12 +1,3 @@
-AutoFormat.PurifierLinkify.DocURL
-TYPE: string
-VERSION: 2.0.1
-DEFAULT: '#%s'
-ALIASES: AutoFormatParam.PurifierLinkifyDocURL
---DESCRIPTION--
-<p>
-  Location of configuration documentation to link to, let %s substitute
-  into the configuration's namespace and directive names sans the percent
-  sign.
-</p>
---# vim: et sw=4 sts=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:14509480b3e2e64de97648ebef27616335bd3718f549345ac30b08bd8349e9f8
+size 338

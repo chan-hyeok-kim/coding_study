@@ -1,11 +1,3 @@
-CSS.AllowTricky
-TYPE: bool
-DEFAULT: false
-VERSION: 3.1.0
---DESCRIPTION--
-This parameter determines whether or not to allow "tricky" CSS properties and
-values. Tricky CSS properties/values can drastically modify page layout or
-be used for deceptive practices but do not directly constitute a security risk.
-For example, <code>display:none;</code> is considered a tricky property that
-will only be allowed if this directive is set to true.
---# vim: et sw=4 sts=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:06b5fb89f74e8d842f95f99d762bfe0bd53dcec2100530862fbdeaab14e3c38d
+size 472

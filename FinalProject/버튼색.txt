@@ -1,12 +1,3 @@
-.btn-info
-#90caf9
-
-배경
-#EEF1F6
-
-page-link
-
- #198ae3
-
-
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:1de138c83884ddf539c432d4d005a0b9f67df5e04d09d078d70b2454306509d6
+size 70

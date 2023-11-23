@@ -1,12 +1,3 @@
-CodeVO codeVO=new CodeVO();
-	    String code=approvalTypeVO.getApprovalTypeCd();
-	    codeVO.setCodeName(approvalTypeVO.getCodeName());
-	    codeVO.setCode(code);
-	    codeVO.setUpCode(code.substring(0,3));
-	    
-	    codeVO=(ApprovalTypeVO)makeColumn.getColumn(codeVO, path, id);
-	    
-	    log.warn("====={}=={}====",codeVO,approvalTypeVO);
-	    
-	    codeService.setAdd(codeVO);
-		int result=approvalTypeService.setAdd(approvalTypeVO);
+version https://git-lfs.github.com/spec/v1
+oid sha256:3c4402e7e1cd6f45ba73b5bf42df91ad2395c8121387de6e4cb47f3e52307582
+size 449

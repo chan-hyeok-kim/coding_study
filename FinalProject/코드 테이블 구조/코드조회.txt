@@ -1,10 +1,3 @@
-상위 코드를 검색할때는
-SELECT *
-  FROM 테이블명
- WHERE CD = 'GCY001'
-
-상세코드를 검색할때는
-SELECT *
-  FROM 테이블명
- WHERE UP_CD = 'GCY001'
-로 조회하시면 되요
+version https://git-lfs.github.com/spec/v1
+oid sha256:e56bf997e2ca00e92577dd5030e98ddad666822b926f953139f60115dc88b250
+size 204

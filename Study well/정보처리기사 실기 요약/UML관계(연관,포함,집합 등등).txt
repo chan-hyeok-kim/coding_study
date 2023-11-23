@@ -1,19 +1,3 @@
-연관(Association)
- - 2개 이상의 사물이 서로 관련되어 있는 관계
-
-집합(Aggregation)
-- 하나의 사물이 다른 사물에 포함되어 있는 관계
-서로 독립적이다
-
-포함(Composition)
-- 집합 관계의 특수 형태. 포함하는 사물의 변화가 포함되는 사물에게 영향을 미치는 관계
-서로 독립될 수 없고 생명주기를 함께 한다
-
-일반화(Generalization)
-- 하나의 사물이 다른 사물에 비해 더 일반적이거나 구체적인 관계
-
-의존(Dependency)
-- 서로에게 영향을 주는 짧은 시간 동안만 연관을 유지하는 관계
-
-실체화(Realization)
-- 사물이 할 수 있거나 해야 하는 기능. 서로를 그룹화할 수 있는 관계
+version https://git-lfs.github.com/spec/v1
+oid sha256:e1e6fd874b7658e7e8ab9318b23a4e4e30fc6c7cae3e0bca72e18eeee87c2b9c
+size 747

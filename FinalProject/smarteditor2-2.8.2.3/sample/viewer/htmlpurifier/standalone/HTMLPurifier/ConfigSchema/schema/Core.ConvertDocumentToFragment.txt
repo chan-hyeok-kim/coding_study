@@ -1,14 +1,3 @@
-Core.ConvertDocumentToFragment
-TYPE: bool
-DEFAULT: true
---DESCRIPTION--
-
-This parameter determines whether or not the filter should convert
-input that is a full document with html and body tags to a fragment
-of just the contents of a body tag. This parameter is simply something
-HTML Purifier can do during an edge-case: for most inputs, this
-processing is not necessary.
-
---ALIASES--
-Core.AcceptFullDocuments
---# vim: et sw=4 sts=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:3db6a8d63771423c58771ff436c23c548dd942d829f5d9cfed459f9af1211d09
+size 447

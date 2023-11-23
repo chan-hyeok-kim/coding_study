@@ -1,7 +1,3 @@
-SELECT * FROM CODE;
-
-DELETE FROM CODE
-WHERE CODE='R012';
-
-DELETE FROM APPROVAL_TYPE 
-WHERE APPROVAL_TYPE_NO =4;
+version https://git-lfs.github.com/spec/v1
+oid sha256:bb3b3ad18bb9dbc07dd8ff257794954caaf4b9c0012e367edb724b1f75928eca
+size 117

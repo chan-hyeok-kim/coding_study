@@ -1,12 +1,3 @@
-Point to Point 
-- 애플리케이션을 1:1로 연결.
-
-Hub & Spoke 허브 시스템을 통해 데이터를 전송하는 중앙 집중형 방식
-
-Message Bus
-- 애플리케이션 사이에 미들웨어를 두어 처리하는 방식
-
-Hybrid
-
-그룹 내에서는 Hub & Spoke 방식을, 그룹 간에는 Message Bus 방식을 사용한다
-데이터 병목 현상을 최소화
+version https://git-lfs.github.com/spec/v1
+oid sha256:2f49c71f7248db346fa8ee73056a72b3da1aa6bbbdb8efd350dd3a9e3e558075
+size 383

@@ -1,11 +1,3 @@
-일반 집합 연산자
-합집합 U
-교집합 ∩
-차집합 -
-카티션 프로덕트 X
-
-순수관계연산자
-셀렉트 σ
-프로젝트 π
-조인 ▷◁
-디비전 ÷
+version https://git-lfs.github.com/spec/v1
+oid sha256:a6098f41bb26dd16bb8235c07761d2d3f98adf4a581554e02d63ab99f5829627
+size 175

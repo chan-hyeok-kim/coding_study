@@ -1,15 +1,3 @@
-Output.FixInnerHTML
-TYPE: bool
-VERSION: 4.3.0
-DEFAULT: true
---DESCRIPTION--
-<p>
-  If true, HTML Purifier will protect against Internet Explorer's
-  mishandling of the <code>innerHTML</code> attribute by appending
-  a space to any attribute that does not contain angled brackets, spaces
-  or quotes, but contains a backtick.  This slightly changes the
-  semantics of any given attribute, so if this is unacceptable and
-  you do not use <code>innerHTML</code> on any of your pages, you can
-  turn this directive off.
-</p>
---# vim: et sw=4 sts=4
+version https://git-lfs.github.com/spec/v1
+oid sha256:75d1d27bf5e30ea77b04c9f68cadfad5aeec574534738e3d9968def2edbf6bb8
+size 558
